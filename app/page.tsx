@@ -175,6 +175,16 @@ export default function LptRcPage() {
               </li>
               <li>
                 <a
+                  href="#intellectual-context"
+                  className="nav-link"
+                  id="link-context"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Context
+                </a>
+              </li>
+              <li>
+                <a
                   href="#research-questions"
                   className="nav-link"
                   id="link-questions"
@@ -868,6 +878,121 @@ export default function LptRcPage() {
               <p className="cube-caption mt-4">
                 <strong>Figure 1. Formal derivation schema (The Personality Cube).</strong> Oblique parallel projection corresponding directly to the author’s theoretical master specification. The candidate architecture pairs 3 orthogonal binary coordinates (<em>natural–social</em>, <em>subjective–objective</em>, and <em>inter–intrapersonal</em>) across 8 psychological manifestations (Needs, Perception, Values, Thought, Emotions, Actions, Evaluation, Speech). Dashed edges highlight the inner orthogonal axes meeting at Needs (the origin, 0,0,0).
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Intellectual Context and Historical Reception */}
+        <section className="section section-tinted" id="intellectual-context" aria-labelledby="context-heading">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-eyebrow">Theoretical Foundations &amp; Reception</span>
+              <h2 id="context-heading">Intellectual Context and Historical Reception</h2>
+              <p className="hero-intro" style={{ marginBottom: 0 }}>
+                Language Personality Theory is related to language-grounded approaches to personality, but it is not a conventional lexical trait model. LPT does not begin by collecting personality-descriptive adjectives and reducing them to statistical factors. It uses recurrent distinctions in natural language as defeasible constraints on a candidate part–whole architecture of psychological functions.
+              </p>
+            </div>
+
+            {/* Subsection 1: LPT and the Lexical Hypothesis */}
+            <div style={{ marginBottom: "3rem" }}>
+              <h3 className="text-xl font-bold mb-4" style={{ color: "var(--color-navy)" }}>
+                LPT and the Lexical Hypothesis
+              </h3>
+              <p className="text-base leading-relaxed text-[#4e5764] mb-4">
+                Conventional psycholexical approaches ask which personality characteristics become encoded in language and use trait-descriptive terms to identify dimensions of individual differences. Language Personality Theory asks a different question: what recurrent pre-theoretical distinctions in natural language may reveal about the functional components of personality and the relations among them.
+              </p>
+              <p className="text-base leading-relaxed text-[#4e5764] mb-6">
+                LPT is therefore architectural rather than primarily taxonomic. Its current formulation proposes eight manifestations organised by three coordinates, from which 28 structural relations are formally derived. Whether these manifestations and relations are psychologically discriminable remains an empirical question addressed by the LPT-RC research programme.
+              </p>
+
+              {/* Compact Comparison Table */}
+              <div
+                className="comparison-table-wrapper"
+                role="region"
+                aria-label="Comparison between conventional psycholexical models and Language Personality Theory"
+                tabIndex={0}
+              >
+                <table className="comparison-table">
+                  <caption className="sr-only">
+                    Comparison of Conventional Psycholexical Models and Language Personality Theory
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Dimension</th>
+                      <th scope="col">Conventional psycholexical models</th>
+                      <th scope="col">Language Personality Theory</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Primary linguistic material</th>
+                      <td>Personality-descriptive terms, especially trait adjectives</td>
+                      <td>Recurrent functional distinctions in natural language</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Main objective</th>
+                      <td>Identify trait dimensions or taxonomies</td>
+                      <td>Reconstruct and test a candidate part–whole architecture</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Typical output</th>
+                      <td>Factors, dimensions and trait categories</td>
+                      <td>Eight manifestations, three coordinates and 28 structural relations</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Status of language evidence</th>
+                      <td>Basis for deriving a trait structure</td>
+                      <td>Defeasible constraint on a theoretical architecture</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Central empirical question</th>
+                      <td>Which trait dimensions are reproduced?</td>
+                      <td>Are the proposed components, coordinates and relations independently recoverable and psychologically discriminable?</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Intellectual Lineage Note */}
+              <div className="intellectual-lineage-note">
+                <p className="text-[0.9375rem] leading-relaxed text-[#4e5764] mb-0">
+                  LPT is intellectually adjacent to the systematic reconstruction of the naïve picture of the human being in natural language associated with Juri Apresjan’s work in systematic lexicography. LPT extends this language-grounded starting point into a proposed psychological architecture. In this respect, it is better understood as a part–whole, or meronomic/partonomic, approach than as another taxonomy of personality descriptors.
+                </p>
+              </div>
+            </div>
+
+            {/* Subsection 2: Early Independent Commentary: C. George Boeree, 2003 */}
+            <div className="commentary-card" id="boeree-commentary">
+              <h3 className="text-xl font-bold mb-4" style={{ color: "var(--color-navy)" }}>
+                Early Independent Commentary: C. George Boeree, 2003
+              </h3>
+              <p className="text-[0.96875rem] leading-relaxed text-[#4e5764] mb-4">
+                In 2003, personality theorist C. George Boeree published an independent explanatory commentary on the original 2002 formulation of Language Personality Theory. Boeree summarised its eight proposed aspects, their organisation and the three-dimensional structure, and presented LPT as an attempt to move beyond statistical trait typologies towards a deeper integrative understanding of personality.
+              </p>
+              <p className="text-[0.96875rem] leading-relaxed text-[#4e5764] mb-5">
+                The commentary is historically significant because it documents an early independent and substantive reading of the theory by a psychologist specialising in personality theory and the history of psychology.
+              </p>
+
+              {/* Restrained Callout / Note */}
+              <div className="status-callout-note" role="note">
+                <p className="mb-0">
+                  <strong>Status of this source:</strong> Boeree’s text is an independent scholarly commentary on the original 2002 formulation. It is not a peer-reviewed empirical test, does not validate the current LPT architecture, and does not constitute endorsement by Shippensburg University.
+                </p>
+              </div>
+
+              <div className="mt-5">
+                <a
+                  href="https://webspace.ship.edu/cgboer/golubkov.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-sm btn-outline inline-flex items-center gap-1.5"
+                  id="boeree-link"
+                  title="Open Boeree's 2003 commentary on Shippensburg University academic webspace (opens in new tab)"
+                >
+                  <span>Read Boeree’s 2003 commentary</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -1935,9 +2060,9 @@ export default function LptRcPage() {
 
             {/* Reference 1 */}
             <div className="reference-card" id="paper-ref-1">
-              <div className="reference-label">Current theoretical master</div>
+              <div className="reference-label">Canonical theoretical specification</div>
               <div className="reference-text">
-                Golubkov, S. V. (2026). <em>From Taxonomies to Generative Architecture: Language Personality Theory and What a Theory of Personality Should Explain</em>. Zenodo.
+                Golubkov, S. V. (2026). <em>From Taxonomies to Generative Architecture: Language Personality Theory and What a Theory of Personality Should Explain</em>. Scientific Master v2.
               </div>
               <a
                 href="https://doi.org/10.5281/zenodo.22727605"
@@ -1952,6 +2077,51 @@ export default function LptRcPage() {
 
             {/* Reference 2 */}
             <div className="reference-card" id="paper-ref-2">
+              <div className="reference-label">Foundational formulation</div>
+              <div className="reference-text">
+                Golubkov, S. V. (2002). The Language Personality Theory: An integrative approach to personality on the basis of its language phenomenology. <em>Social Behavior and Personality</em>, 30(6), 571–578.
+              </div>
+              <a
+                href="https://doi.org/10.2224/sbp.2002.30.6.571"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="reference-doi inline-flex items-center gap-1"
+              >
+                <span>https://doi.org/10.2224/sbp.2002.30.6.571</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+
+            {/* Reference 3 */}
+            <div className="reference-card" id="paper-ref-3">
+              <div className="reference-label">Historical commentary</div>
+              <div className="reference-text">
+                Boeree, C. G. (2003). <em>Golubkov’s Language Personality Theory</em>. Shippensburg University personal academic webspace.
+              </div>
+              <a
+                href="https://webspace.ship.edu/cgboer/golubkov.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="reference-doi inline-flex items-center gap-1"
+              >
+                <span>https://webspace.ship.edu/cgboer/golubkov.html</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+
+            {/* Reference 4 */}
+            <div className="reference-card" id="paper-ref-4">
+              <div className="reference-label">Intellectual lineage</div>
+              <div className="reference-text">
+                Apresjan, J. D. (2000). <em>Systematic Lexicography</em>. Oxford University Press.
+              </div>
+              <span className="reference-doi text-[#6c7684]">
+                Oxford: Oxford University Press. ISBN: 9780198237808
+              </span>
+            </div>
+
+            {/* Reference 5 */}
+            <div className="reference-card" id="paper-ref-5">
               <div className="reference-label">Applied bridge</div>
               <div className="reference-text">
                 Golubkov, S. V. (2026). <em>Dialectical Contradictions Coaching as an Innovative Developmental Practice Based on LPT</em>.
@@ -1967,25 +2137,8 @@ export default function LptRcPage() {
               </a>
             </div>
 
-            {/* Reference 3 */}
-            <div className="reference-card" id="paper-ref-3">
-              <div className="reference-label">Historical foundation</div>
-              <div className="reference-text">
-                Golubkov, S. V. (2002). The Language Personality Theory: An integrative approach to personality on the basis of its language phenomenology. <em>Social Behavior and Personality</em>, 30(6), 571–578.
-              </div>
-              <a
-                href="https://doi.org/10.2224/sbp.2002.30.6.571"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="reference-doi inline-flex items-center gap-1"
-              >
-                <span>https://doi.org/10.2224/sbp.2002.30.6.571</span>
-                <ExternalLink className="w-3 h-3" />
-              </a>
-            </div>
-
-            {/* Reference 4 */}
-            <div className="reference-card" id="paper-ref-4">
+            {/* Reference 6 */}
+            <div className="reference-card" id="paper-ref-6">
               <div className="reference-label">Historical foundation</div>
               <div className="reference-text">
                 Golubkov, S. V. (2000). The language model of personality and its perspectives within psychology. <em>PsychNews International</em>, 5(1), Section D.
@@ -2093,6 +2246,11 @@ export default function LptRcPage() {
                 <li>
                   <a href="https://doi.org/10.2224/sbp.2002.30.6.571" target="_blank" rel="noopener noreferrer">
                     2002 foundational article
+                  </a>
+                </li>
+                <li>
+                  <a href="https://webspace.ship.edu/cgboer/golubkov.html" target="_blank" rel="noopener noreferrer">
+                    2003 Boeree commentary
                   </a>
                 </li>
                 <li>

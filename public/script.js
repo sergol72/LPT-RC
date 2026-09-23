@@ -67,101 +67,182 @@ document.addEventListener('DOMContentLoaded', () => {
     link.title = 'University Concept Note v0.2 file will be available in assets/ directory upon repository setup.';
   }
 
-  // 4. Personality Cube Vertex Hover & Click-to-Copy
+  // 4. Authentic Personality Cube Display Modes, Edge Highlighting & Click-to-Copy
   const cubeDiagram = document.getElementById('cube-diagram');
   if (cubeDiagram) {
     const feedbackText = cubeDiagram.querySelector('.cube-feedback-text');
     const vertices = cubeDiagram.querySelectorAll('.cube-vertex');
     const quickButtons = cubeDiagram.querySelectorAll('.cube-quick-copy-btn');
+    const modeButtons = cubeDiagram.querySelectorAll('.cube-mode-btn');
+    const edges = cubeDiagram.querySelectorAll('.cube-edge');
+    let currentMode = 'both';
 
-    function showCopiedFeedback(vector, vertexId) {
+    // Update display mode
+    function setDisplayMode(mode) {
+      currentMode = mode;
+      modeButtons.forEach(btn => {
+        btn.classList.toggle('is-active', btn.getAttribute('data-mode') === mode);
+      });
+
+      vertices.forEach(v => {
+        const locus = v.getAttribute('data-locus');
+        const vector = v.getAttribute('data-vector');
+        const nameSpan = v.querySelector('.vertex-name');
+        const vectorSpan = v.querySelector('.vertex-vector');
+
+        if (mode === 'names') {
+          if (nameSpan) {
+            nameSpan.style.display = 'inline';
+            nameSpan.textContent = locus;
+          }
+          if (vectorSpan) vectorSpan.style.display = 'none';
+        } else if (mode === 'vectors') {
+          if (nameSpan) nameSpan.style.display = 'none';
+          if (vectorSpan) {
+            vectorSpan.style.display = 'inline';
+            vectorSpan.textContent = vector;
+            vectorSpan.setAttribute('fill', '#112238');
+            vectorSpan.setAttribute('font-size', '13');
+            vectorSpan.setAttribute('dx', '0');
+          }
+        } else {
+          // Both
+          if (nameSpan) {
+            nameSpan.style.display = 'inline';
+            nameSpan.textContent = locus;
+          }
+          if (vectorSpan) {
+            vectorSpan.style.display = 'inline';
+            vectorSpan.textContent = vector;
+            vectorSpan.setAttribute('fill', '#64748b');
+            vectorSpan.setAttribute('font-size', '11.5');
+            vectorSpan.setAttribute('dx', '6');
+          }
+        }
+      });
+    }
+
+    modeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mode = btn.getAttribute('data-mode');
+        if (mode) setDisplayMode(mode);
+      });
+    });
+
+    function showCopiedFeedback(textToCopy, vertexId) {
       if (feedbackText) {
-        feedbackText.innerHTML = `✓ Copied formal vector <strong>${vector}</strong> to clipboard`;
+        feedbackText.innerHTML = `✓ Copied <strong>${textToCopy}</strong> to clipboard`;
         feedbackText.style.color = '#047857';
       }
       // Highlight quick button if present
       quickButtons.forEach(btn => {
         if (btn.getAttribute('data-id') === vertexId) {
           btn.classList.add('is-copied');
-          btn.textContent = `✓ ${vector}`;
+          const original = btn.textContent;
+          btn.textContent = `✓ ${textToCopy}`;
           setTimeout(() => {
             btn.classList.remove('is-copied');
-            btn.textContent = vector;
+            btn.textContent = original;
           }, 2000);
         }
       });
       // Flash vertex label
       const targetVertex = document.getElementById(`static-${vertexId}`);
       if (targetVertex) {
-        const textElem = targetVertex.querySelector('text');
-        if (textElem) {
-          const original = textElem.textContent;
-          textElem.textContent = '✓ Copied';
-          textElem.setAttribute('fill', '#047857');
+        const nameElem = targetVertex.querySelector('.vertex-name');
+        if (nameElem) {
+          const original = nameElem.textContent;
+          nameElem.textContent = `✓ ${original}`;
+          nameElem.setAttribute('fill', '#047857');
           setTimeout(() => {
-            textElem.textContent = original;
-            textElem.setAttribute('fill', '#112238');
+            nameElem.textContent = original;
+            nameElem.setAttribute('fill', '#112238');
           }, 2000);
         }
       }
       setTimeout(() => {
         if (feedbackText) {
-          feedbackText.textContent = 'Hover vertices to highlight · Click any coordinate to copy';
+          feedbackText.textContent = 'Hover vertices to inspect axes · Click any vertex to copy';
           feedbackText.style.color = 'var(--color-text-light)';
         }
       }, 2500);
     }
 
-    function copyVector(vector, vertexId) {
+    function copyString(text, vertexId) {
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(vector).then(() => {
-          showCopiedFeedback(vector, vertexId);
+        navigator.clipboard.writeText(text).then(() => {
+          showCopiedFeedback(text, vertexId);
         }).catch(() => {
-          showCopiedFeedback(vector, vertexId);
+          showCopiedFeedback(text, vertexId);
         });
       } else {
-        showCopiedFeedback(vector, vertexId);
+        showCopiedFeedback(text, vertexId);
       }
     }
 
     vertices.forEach(v => {
+      const locus = v.getAttribute('data-locus');
       const vector = v.getAttribute('data-vector');
+      const desc = v.getAttribute('data-desc');
       const vId = v.getAttribute('data-id');
 
       v.addEventListener('mouseenter', () => {
         v.classList.add('is-hovered');
+        // Highlight incident edges
+        edges.forEach(edge => {
+          const edgeTargets = edge.getAttribute('data-edge') || '';
+          if (edgeTargets.includes(vId)) {
+            edge.setAttribute('stroke', '#206266');
+            edge.setAttribute('stroke-width', '3.8');
+          }
+        });
+
         if (feedbackText) {
-          feedbackText.innerHTML = `Formal vector: <strong>${vector}</strong> (Click to copy)`;
+          feedbackText.innerHTML = `<strong>${locus}</strong> ${vector} — ${desc}`;
           feedbackText.style.color = 'var(--color-teal)';
         }
       });
 
       v.addEventListener('mouseleave', () => {
         v.classList.remove('is-hovered');
+        // Reset edges
+        edges.forEach(edge => {
+          edge.setAttribute('stroke', '#112238');
+          const isDashed = edge.getAttribute('stroke-dasharray');
+          edge.setAttribute('stroke-width', isDashed ? '2.5' : '2.6');
+        });
+
         if (feedbackText && !feedbackText.textContent.includes('Copied')) {
-          feedbackText.textContent = 'Hover vertices to highlight · Click any coordinate to copy';
+          feedbackText.textContent = 'Hover vertices to inspect axes · Click any vertex to copy';
           feedbackText.style.color = 'var(--color-text-light)';
         }
       });
 
+      const getCopyText = () => {
+        if (currentMode === 'names') return locus;
+        if (currentMode === 'vectors') return vector;
+        return `${locus} ${vector}`;
+      };
+
       v.addEventListener('click', () => {
-        copyVector(vector, vId);
+        copyString(getCopyText(), vId);
       });
 
       v.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          copyVector(vector, vId);
+          copyString(getCopyText(), vId);
         }
       });
     });
 
     quickButtons.forEach(btn => {
-      const vector = btn.getAttribute('data-vector');
+      const locus = btn.getAttribute('data-locus') || '';
+      const vector = btn.getAttribute('data-vector') || '';
       const vId = btn.getAttribute('data-id');
 
       btn.addEventListener('click', () => {
-        copyVector(vector, vId);
+        copyString(`${locus} ${vector}`, vId);
       });
     });
   }

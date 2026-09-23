@@ -30,7 +30,7 @@ To activate the direct email buttons:
    ```html
    REPLACE_WITH_CONTACT_EMAIL
    ```
-3. Replace all occurrences with your verified contact address (e.g. `collaborate@lpt-research.org` or `golubkovsv@gmail.com`):
+3. Replace all occurrences with your verified contact address (e.g. `sergey.golubkov@innerdialectica.com`):
    ```html
    href="mailto:collaborate@lpt-research.org?subject=LPT-RC%20Scientific%20Scoping%20Meeting"
    ```

@@ -77,7 +77,7 @@ export default function LptRcPage() {
   };
 
   // Email configuration for academic scoping & partnership requests
-  const CONTACT_EMAIL: string = 'golubkovsv@gmail.com';
+  const CONTACT_EMAIL: string = 'sergey.golubkov@innerdialectica.com';
   const hasConfiguredEmail = CONTACT_EMAIL.length > 0 && !CONTACT_EMAIL.includes('REPLACE_WITH');
 
   // ORCID placeholder logic per Specification Section 10
@@ -1909,7 +1909,7 @@ export default function LptRcPage() {
                       id="founder-contact-link"
                     >
                       <Mail className="w-3.5 h-3.5" />
-                      <span>Contact Sergey</span>
+                      <span>Contact Sergey Golubkov</span>
                     </a>
                   ) : (
                     <span className="btn btn-sm btn-disabled opacity-60 cursor-not-allowed">

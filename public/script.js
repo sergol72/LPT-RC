@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close mobile nav when clicking a link
     primaryNav.querySelectorAll('.nav-link, .header-cta-btn').forEach(link => {
       link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1080) {
           primaryNav.classList.remove('is-open');
           toggleBtn.setAttribute('aria-expanded', 'false');
         }

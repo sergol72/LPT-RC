@@ -80,9 +80,9 @@ export default function LptRcPage() {
   const CONTACT_EMAIL: string = 'sergey.golubkov@innerdialectica.com';
   const hasConfiguredEmail = CONTACT_EMAIL.length > 0 && !CONTACT_EMAIL.includes('REPLACE_WITH');
 
-  // ORCID placeholder logic per Specification Section 10
-  const ORCID_URL: string = 'REPLACE_WITH_ORCID_URL';
-  const hasConfiguredOrcid = ORCID_URL !== 'REPLACE_WITH_ORCID_URL' && ORCID_URL.length > 0;
+  // ORCID configuration for Sergey V. Golubkov
+  const ORCID_URL: string = 'https://orcid.org/0000-0002-5288-7817';
+  const hasConfiguredOrcid = ORCID_URL.length > 0;
 
   // Portrait image source pointing to local web-optimised asset
   const portraitSrc = '/assets/sergey_golubkov_portrait_v2.jpg';
@@ -211,6 +211,16 @@ export default function LptRcPage() {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Horizon
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#faq"
+                  className="nav-link"
+                  id="link-faq"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  FAQ
                 </a>
               </li>
               <li>
@@ -1741,6 +1751,149 @@ export default function LptRcPage() {
           </div>
         </section>
 
+        {/* Frequently Asked Questions (Agreed Authoritative Copy) */}
+        <section className="section section-tinted" id="faq" aria-labelledby="faq-heading">
+          <div className="container container-narrow">
+            <div className="section-header">
+              <span className="section-eyebrow">Clarifications &amp; Principles</span>
+              <h2 id="faq-heading">Frequently Asked Questions</h2>
+              <p>
+                Authoritative clarifications on the theoretical architecture, methodological boundaries, and institutional principles of the Language Personality Theory Research Collaborative.
+              </p>
+            </div>
+
+            <div className="faq-list">
+              {/* Question 1 */}
+              <details className="faq-item" id="faq-item-1">
+                <summary className="faq-question">
+                  <span>What is Language Personality Theory (LPT) in brief?</span>
+                  <span className="faq-icon" aria-hidden="true">▼</span>
+                </summary>
+                <div className="faq-answer">
+                  <p>
+                    Language Personality Theory is a proposed generative psychological architecture that models personality functioning through eight structural manifestations (Needs, Perception, Emotions, Actions, Values, Thought, Evaluation, and Speech) organized along three polar coordinates: <strong>Subjective–Objective</strong>, <strong>Natural–Social</strong>, and <strong>Inter–Intrapersonal</strong>. Formally derived from these coordinates are 28 pairwise structural relations representing systemic polarities and dialectical tensions between psychological functions.
+                  </p>
+                  <p>
+                    Rather than reducing trait-descriptive adjectives to statistical factors, LPT uses recurrent distinctions in natural language as defeasible constraints on a candidate part–whole (meronomic) architecture of psychological functions.
+                  </p>
+                </div>
+              </details>
+
+              {/* Question 2 */}
+              <details className="faq-item" id="faq-item-2">
+                <summary className="faq-question">
+                  <span>How does LPT differ from conventional psycholexical trait models (such as the Big Five)?</span>
+                  <span className="faq-icon" aria-hidden="true">▼</span>
+                </summary>
+                <div className="faq-answer">
+                  <p>
+                    Conventional psycholexical models ask which personality characteristics become encoded in language and apply statistical factor analysis to trait-descriptive adjectives to construct descriptive taxonomies (such as dimensions or factor categories).
+                  </p>
+                  <p>
+                    In contrast, Language Personality Theory asks an architectural and functional question: what recurrent pre-theoretical distinctions in natural language reveal about the systemic components of personality and the relations among them. LPT is therefore architectural and generative rather than taxonomic. It proposes a part–whole (meronomic) functional system organized along three coordinates (<strong>Subjective–Objective</strong>, <strong>Natural–Social</strong>, <strong>Inter–Intrapersonal</strong>) rather than an inventory of individual-difference traits.
+                  </p>
+                </div>
+              </details>
+
+              {/* Question 3 */}
+              <details className="faq-item" id="faq-item-3">
+                <summary className="faq-question">
+                  <span>Has Language Personality Theory been empirically proven or validated?</span>
+                  <span className="faq-icon" aria-hidden="true">▼</span>
+                </summary>
+                <div className="faq-answer">
+                  <p>
+                    No. Language Personality Theory is currently a candidate theoretical architecture and a scientific hypothesis. The mathematical derivation of eight manifestations and 28 relations is a formal structural property of the model, not empirical proof of psychological reality.
+                  </p>
+                  <p>
+                    Whether these proposed functional components, coordinates, and dialectical relations are psychologically discriminable and construct-recoverable requires rigorous, independent empirical testing. Testing these core claims under pre-registered conditions is precisely the objective of the proposed LPT-RC collaborative research programme.
+                  </p>
+                </div>
+              </details>
+
+              {/* Question 4 */}
+              <details className="faq-item" id="faq-item-4">
+                <summary className="faq-question">
+                  <span>Does LPT propose eight rigid personality &ldquo;types&rdquo;?</span>
+                  <span className="faq-icon" aria-hidden="true">▼</span>
+                </summary>
+                <div className="faq-answer">
+                  <p>
+                    No. The eight manifestations (Needs, Perception, Emotions, Actions, Values, Thought, Evaluation, and Speech) represent idealized functional components of personality functioning across the three polar coordinates, not static typological pigeonholes, diagnostic labels, competence levels, or employee-selection categories.
+                  </p>
+                  <p>
+                    In LPT, personality functioning is dynamic: individuals engage all eight components, and personality expression is characterized by situational configurations, shifting balances, and dialectical tensions among components rather than assignment to a single fixed &ldquo;type&rdquo;.
+                  </p>
+                </div>
+              </details>
+
+              {/* Question 5 */}
+              <details className="faq-item" id="faq-item-5">
+                <summary className="faq-question">
+                  <span>What are the 28 structural relations, and what is their empirical status?</span>
+                  <span className="faq-icon" aria-hidden="true">▼</span>
+                </summary>
+                <div className="faq-answer">
+                  <p>
+                    The 28 relations represent all pairwise structural combinations among the eight manifestations (8 × 7 / 2 = 28): 12 along one dimension (edges of the cube), 12 along two dimensions (face diagonals), and 4 across all three dimensions (space diagonals). Theoretically, they model systemic polarities, complementarities, and dialectical tensions between psychological functions.
+                  </p>
+                  <p>
+                    Empirically, LPT-RC maintains that the formal combinatorial derivation does not by itself prove 28 distinct psychological contradiction classes. Whether these relations are psychologically discriminable, independently recoverable from natural language, and behaviorally meaningful are open empirical questions to be tested in the research programme.
+                  </p>
+                </div>
+              </details>
+
+              {/* Question 6 */}
+              <details className="faq-item" id="faq-item-6">
+                <summary className="faq-question">
+                  <span>What is the status of C. George Boeree&apos;s 2003 commentary?</span>
+                  <span className="faq-icon" aria-hidden="true">▼</span>
+                </summary>
+                <div className="faq-answer">
+                  <p>
+                    In 2003, Dr C. George Boeree published an independent explanatory summary of the original 2002 formulation of LPT on his Shippensburg University personal academic webspace. He highlighted LPT&apos;s effort to move beyond descriptive trait typologies towards an integrative theory of personality grounded in language.
+                  </p>
+                  <p>
+                    As documented on this website, Boeree’s commentary is historically valuable as an early independent scholarly reading of the initial formulation. However, it is an explanatory reading rather than an empirical validation, it does not evaluate the updated 2026 architecture, and it does not imply institutional affiliation with or endorsement by Shippensburg University.
+                  </p>
+                </div>
+              </details>
+
+              {/* Question 7 */}
+              <details className="faq-item" id="faq-item-7">
+                <summary className="faq-question">
+                  <span>How does LPT-RC separate academic research from coaching practices and commercial products?</span>
+                  <span className="faq-icon" aria-hidden="true">▼</span>
+                </summary>
+                <div className="faq-answer">
+                  <p>
+                    LPT-RC enforces a strict institutional boundary between independent academic science and applied or commercial practices. Applied frameworks such as Dialectical Contradictions Coaching (DCC) and commercial platforms (such as Inner Dialectica) are distinct practical explorations.
+                  </p>
+                  <p>
+                    Academic partners collaborate exclusively on non-commercial scientific research under open scholarly standards. University collaboration does not imply endorsement of any commercial method, coaching service, or clinical claim, and research data and protocols are governed by independent academic rigor.
+                  </p>
+                </div>
+              </details>
+
+              {/* Question 8 */}
+              <details className="faq-item" id="faq-item-8">
+                <summary className="faq-question">
+                  <span>What is the immediate focus of the proposed university partnership?</span>
+                  <span className="faq-icon" aria-hidden="true">▼</span>
+                </summary>
+                <div className="faq-answer">
+                  <p>
+                    The primary proposed initiative is a bounded 12-month Russian–English bilingual pilot study. The pilot focuses on psychometric operationalisation, marker extraction, automated text classification, and testing construct recoverability across natural language corpora.
+                  </p>
+                  <p>
+                    The partnership offers university researchers an intellectual and empirical challenge with pre-registered hypotheses and clear risk mitigation, yielding publishable methodological and empirical contributions regardless of whether hypotheses are corroborated or falsified.
+                  </p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+
         {/* 6.13 Partnership Model */}
         <section className="section" id="partnership" aria-labelledby="partner-model-heading">
           <div className="container">
@@ -1947,6 +2100,20 @@ export default function LptRcPage() {
                     Independent Researcher
                     <br />
                     Founder and Research Lead, LPT-RC
+                    {hasConfiguredOrcid && (
+                      <div className="mt-1">
+                        <a
+                          href={ORCID_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="reference-doi inline-flex items-center gap-1 text-xs"
+                          title="ORCID iD: 0000-0002-5288-7817"
+                        >
+                          <span>ORCID: 0000-0002-5288-7817</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -2257,6 +2424,9 @@ export default function LptRcPage() {
                   <a href="https://doi.org/10.13140/RG.2.2.19655.66729" target="_blank" rel="noopener noreferrer">
                     2000 foundational article
                   </a>
+                </li>
+                <li>
+                  <a href="#faq">FAQ</a>
                 </li>
                 <li>
                   <a

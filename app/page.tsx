@@ -1983,6 +1983,35 @@ export default function LptRcPage() {
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>
+
+            {/* Reference 4 */}
+            <div className="reference-card" id="paper-ref-4">
+              <div className="reference-label">Historical foundation</div>
+              <div className="reference-text">
+                Golubkov, S. V. (2000). The language model of personality and its perspectives within psychology. <em>PsychNews International</em>, 5(1), Section D.
+              </div>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mt-2">
+                <a
+                  href="https://doi.org/10.13140/RG.2.2.19655.66729"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="reference-doi inline-flex items-center gap-1"
+                >
+                  <span>https://doi.org/10.13140/RG.2.2.19655.66729</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+                <a
+                  href="https://userpage.fu-berlin.de/~expert/psychnews/5_1/pn5_1d.htm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="reference-doi inline-flex items-center gap-1"
+                  title="Original publication archive at Freie Universität Berlin"
+                >
+                  <span>Freie Universität Berlin Archive</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -2043,6 +2072,15 @@ export default function LptRcPage() {
               <p className="text-[#a4b3c4] text-xs max-w-[48ch]">
                 An independent international, project-based network established to operationalise, test, compare, and extend the generative architecture of LPT through open, cross-linguistic, and person-specific research.
               </p>
+              <p className="text-[#92cbd0] text-xs mt-2">
+                Contact:{" "}
+                <a
+                  href={`mailto:${CONTACT_EMAIL}?subject=LPT-RC%20Research%20Enquiry`}
+                  className="underline hover:text-white"
+                >
+                  {CONTACT_EMAIL}
+                </a>
+              </p>
             </div>
 
             <nav aria-label="Footer navigation">
@@ -2058,7 +2096,18 @@ export default function LptRcPage() {
                   </a>
                 </li>
                 <li>
-                  <a href="#contact">Contact</a>
+                  <a href="https://doi.org/10.13140/RG.2.2.19655.66729" target="_blank" rel="noopener noreferrer">
+                    2000 foundational article
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={`mailto:${CONTACT_EMAIL}?subject=LPT-RC%20Research%20Enquiry`}
+                    title={`Send email to ${CONTACT_EMAIL}`}
+                    id="footer-contact-link"
+                  >
+                    Contact
+                  </a>
                 </li>
                 <li>
                   <a href="#site-header">Back to top ↑</a>

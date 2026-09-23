@@ -372,21 +372,22 @@ export default function LptRcPage() {
             <h3 className="text-xl font-serif text-[var(--color-navy)] mt-8 mb-4">Architecture at a glance</h3>
             <div className="sequence-flow" aria-label="Visual derivation sequence">
               <div className="flow-step">
+                <span className="flow-step-num">Step 01</span>
                 <div className="flow-step-title">Three binary coordinates</div>
                 <div className="flow-step-desc">Orthogonal structural axes (C₁, C₂, C₃ ∈ &#123;0, 1&#125;)</div>
               </div>
-              <div className="flow-arrow" aria-hidden="true">↓</div>
               <div className="flow-step">
+                <span className="flow-step-num">Step 02</span>
                 <div className="flow-step-title">Eight proposed manifestations</div>
                 <div className="flow-step-desc">Candidate loci at the 8 cube vertices</div>
               </div>
-              <div className="flow-arrow" aria-hidden="true">↓</div>
               <div className="flow-step">
+                <span className="flow-step-num">Step 03</span>
                 <div className="flow-step-title">28 unordered relations</div>
                 <div className="flow-step-desc">Pairwise vertex combinations (8 × 7 / 2 = 28)</div>
               </div>
-              <div className="flow-arrow" aria-hidden="true">↓</div>
               <div className="flow-step">
+                <span className="flow-step-num">Step 04</span>
                 <div className="flow-step-title">Dimensional breakdown</div>
                 <div className="flow-step-desc">12 1D relations + 12 2D relations + 4 3D relations</div>
               </div>

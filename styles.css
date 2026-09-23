@@ -501,41 +501,75 @@ strong {
 
 /* Visual Sequence Banner */
 .sequence-flow {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: stretch;
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: 1.5rem;
+  padding: 1.25rem 1rem;
   margin-bottom: 2rem;
-  gap: 1rem;
+  gap: 0.875rem;
 }
 
 .flow-step {
-  flex: 1;
-  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   text-align: center;
-  padding: 0.75rem;
+  padding: 1rem 0.75rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  position: relative;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.flow-step:hover {
+  border-color: var(--color-teal);
+  box-shadow: 0 2px 8px rgba(32, 98, 102, 0.08);
+}
+
+.flow-step-num {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--color-teal);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
 }
 
 .flow-step-title {
-  font-size: 1.0625rem;
+  font-size: 0.9375rem;
   font-weight: 600;
   color: var(--color-navy);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
 }
 
 .flow-step-desc {
   font-size: 0.8125rem;
   color: var(--color-text-light);
+  line-height: 1.4;
 }
 
 .flow-arrow {
-  color: var(--color-teal);
-  font-size: 1.25rem;
-  font-weight: bold;
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .sequence-flow {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.875rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .sequence-flow {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Prominent Formal Derivation Statement */

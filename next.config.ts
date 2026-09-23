@@ -2,6 +2,10 @@ import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  allowedDevOrigins: [
+    '*.run.app',
+    '*.europe-west2.run.app',
+  ],
   eslint: {
     ignoreDuringBuilds: true,
   },

@@ -1,6 +1,6 @@
 {
   "name": "Language Personality Theory Research Collaborative",
-  "description": "An independent international research network advancing a generative, language-grounded science of personality.",
+  "description": "Founder-led research initiative seeking university collaboration to test a generative, language-grounded architecture of personality.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

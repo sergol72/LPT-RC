@@ -47,16 +47,16 @@ If you ever need to update or change the ORCID link:
 
 ### 3. Placing the University Concept Note PDF
 
-The website includes links to download the document `University Concept Note v0.2`.
+The website includes links to download the document `University Concept Note v0.3`.
 
 1. Obtain or export your PDF document.
 2. Name the file exactly:
    ```
-   LPT_RC_University_Concept_Note_v0.2.pdf
+   LPT_RC_University_Concept_Note_v0.3.pdf
    ```
 3. Place this file inside the `assets/` folder of this project:
    ```
-   assets/LPT_RC_University_Concept_Note_v0.2.pdf
+   assets/LPT_RC_University_Concept_Note_v0.3.pdf
    ```
 4. If this file is not yet present, the website automatically displays the download button in a clean disabled state with a descriptive tooltip so visitors do not encounter a 404 error.
 
@@ -89,7 +89,7 @@ To host the website under `https://lpt-research.github.io/`:
    - `robots.txt`
    - `sitemap.xml`
    - `README.md`
-   - `assets/` folder (containing `LPT_RC_University_Concept_Note_v0.2.pdf`)
+   - `assets/` folder (containing `LPT_RC_University_Concept_Note_v0.3.pdf`)
 5. In the commit message box at the bottom, enter `Initial publication of LPT-RC academic website`.
 6. Click **Commit changes**.
 
@@ -139,8 +139,8 @@ Before making public announcements or modifying texts, ensure that none of the f
 2. **Distinguish Formal Entailment from Psychological Validation:**
    - The formal count of 28 relations (12 1D + 12 2D + 4 3D) does NOT prove that there are 28 psychologically distinct contradiction classes.
    - Do NOT describe the 28 relations as established psychological types.
-   - Do NOT describe the eight ideal configurations as fixed personality types.
-   - Do NOT describe the eight manifestations as "eight validated components".
+   - Generativity III proposes eight idealised whole-person configurations (one for each possible focal manifestation, with a 1–3–3–1 structural-distance pattern); do NOT describe them as empirically established categories, diagnoses, or fixed rankings of real people. The accessibility ordering is a separate, testable hypothesis.
+   - Do NOT state or imply that LPT does not propose eight configurations; preserve the distinction between: (1) eight functional manifestations, (2) eight idealised whole-person configurations, and (3) 28 pairwise structural relations.
 3. **Staged Generativities & Extensions:**
    - Clearly maintain that Generativities II–IV, developmental hypotheses, embodied/physiological claims, and DCC feasibility programmes are conditional on passing upstream decision gates.
    - Keep commercial activities (Inner Dialectica, DCC) strictly separate from the research programme.

@@ -1,11 +1,10 @@
 # Assets Directory for LPT-RC
 
-This directory holds downloadable documents for the Language Personality Theory Research Collaborative.
+This directory holds downloadable documents and media assets for the Language Personality Theory Research Collaborative.
 
-Expected file:
-- LPT_RC_University_Concept_Note_v0.2.pdf
+Current files:
+- `LPT_RC_University_Concept_Note_v0.3.pdf` (Public Concept Note — Discussion Draft v0.3)
+- `LPT_RC_University_Concept_Note_v0.3.html` (Print-ready HTML edition of Concept Note)
+- `Sergey_Golubkov_Academic_CV.pdf` (Academic Curriculum Vitae of Sergey V. Golubkov)
+- Photographic assets and portraits for the Founder & Theoretical Lead.
 
-To activate the "Download University Concept Note v0.2" link on index.html:
-1. Place the official PDF document `LPT_RC_University_Concept_Note_v0.2.pdf` directly into this `/assets` directory.
-2. If uploading to GitHub Pages, commit and push this file to the `assets/` folder of the `lpt-research.github.io` repository.
-3. The website's script and markup will automatically detect or link to the active PDF file.

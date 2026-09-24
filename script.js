@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 3. Concept Note PDF Availability Check
-  const conceptNoteLinks = document.querySelectorAll('a[href*="LPT_RC_University_Concept_Note_v0.2.pdf"]');
+  const conceptNoteLinks = document.querySelectorAll('a[href*="LPT_RC_University_Concept_Note_v0.3.pdf"], a[href*="Concept_Note"]');
   conceptNoteLinks.forEach(link => {
     // Test if file is available; if not or if marked inactive, style disabled
     fetch(link.getAttribute('href'), { method: 'HEAD' })
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function disableConceptNoteLink(link) {
     link.classList.add('btn-disabled');
     link.setAttribute('aria-disabled', 'true');
-    link.title = 'University Concept Note v0.2 file will be available in assets/ directory upon repository setup.';
+    link.title = 'University Concept Note v0.3 file will be available in assets/ directory upon repository setup.';
   }
 
   // 4. Authentic Personality Cube Display Modes, Edge Highlighting & Click-to-Copy

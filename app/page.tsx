@@ -3,27 +3,13 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import {
-  FileText,
   ExternalLink,
   Download,
   Menu,
   X,
-  AlertCircle,
-  CheckCircle2,
-  Calendar,
-  Layers,
-  HelpCircle,
-  Users,
-  ShieldCheck,
-  Scale,
-  GitBranch,
-  BookOpen,
-  ArrowDown,
   Copy,
   Check,
   ChevronRight,
-  Clock,
-  Flag,
   Mail
 } from 'lucide-react';
 
@@ -76,25 +62,21 @@ export default function LptRcPage() {
     }
   };
 
-  // Email configuration for academic scoping & partnership requests
-  const CONTACT_EMAIL: string = 'sergey.golubkov@innerdialectica.com';
-  const hasConfiguredEmail = CONTACT_EMAIL.length > 0 && !CONTACT_EMAIL.includes('REPLACE_WITH');
-
-  // ORCID configuration for Sergey V. Golubkov
-  const ORCID_URL: string = 'https://orcid.org/0000-0002-5288-7817';
-  const hasConfiguredOrcid = ORCID_URL.length > 0;
-
-  // Portrait image source pointing to local web-optimised asset
-  const portraitSrc = '/assets/sergey_golubkov_portrait_v2.jpg';
+  const CONTACT_EMAIL = 'sergey.golubkov@innerdialectica.com';
+  const CONCEPT_NOTE_PDF = '/assets/LPT_RC_University_Concept_Note_v0.3.pdf';
+  const CONCEPT_NOTE_HTML = '/assets/LPT_RC_University_Concept_Note_v0.3.html';
+  const CV_PDF = '/assets/Sergey_Golubkov_Academic_CV.pdf';
+  const ORCID_URL = 'https://orcid.org/0000-0002-5288-7817';
+  const MANUSCRIPT_DOI = 'https://doi.org/10.5281/zenodo.22727605';
 
   return (
     <div className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text-main)] flex flex-col selection:bg-[#206266] selection:text-white">
-      {/* Skip to content */}
+      {/* Skip link */}
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
 
-      {/* Static GitHub Pages Export Announcement Bar */}
+      {/* GitHub Pages Static Announcement Bar */}
       <aside aria-label="GitHub Pages static bundle notification" className="bg-[#112238] text-slate-200 text-xs py-2 px-4 border-b border-slate-700">
         <div className="max-w-[1140px] mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
@@ -102,7 +84,7 @@ export default function LptRcPage() {
               GitHub Pages Ready
             </span>
             <span>
-              Pure static HTML5, CSS & JS at repository root (<code className="text-teal-300">index.html</code>). No build required.
+              Pure static HTML5, CSS &amp; JS at repository root (<code className="text-teal-300">index.html</code>). No build required.
             </span>
           </div>
           <div className="flex items-center gap-3">
@@ -119,7 +101,7 @@ export default function LptRcPage() {
         </div>
       </aside>
 
-      {/* 6.1 Header */}
+      {/* Header with 6-item navigation */}
       <header className="site-header" role="banner" id="site-header">
         <div className="container header-inner">
           <a href="#hero" className="brand-wrapper" id="page-brand-link">
@@ -146,7 +128,7 @@ export default function LptRcPage() {
             <span>Menu</span>
           </button>
 
-          {/* Primary Navigation */}
+          {/* Primary Navigation - 6 Items */}
           <nav
             className={`primary-nav ${mobileMenuOpen ? 'is-open' : ''}`}
             id="page-primary-nav"
@@ -155,72 +137,22 @@ export default function LptRcPage() {
             <ul className="nav-links">
               <li>
                 <a
-                  href="#about"
-                  className="nav-link"
-                  id="link-about"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#architecture"
-                  className="nav-link"
-                  id="link-architecture"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Architecture
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#intellectual-context"
-                  className="nav-link"
-                  id="link-context"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Context
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#research-questions"
+                  href="#questions"
                   className="nav-link"
                   id="link-questions"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Questions
+                  Research Question
                 </a>
               </li>
               <li>
                 <a
-                  href="#pilot"
+                  href="#model"
                   className="nav-link"
-                  id="link-pilot"
+                  id="link-model"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Pilot
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#horizon"
-                  className="nav-link"
-                  id="link-horizon"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Horizon
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#faq"
-                  className="nav-link"
-                  id="link-faq"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  FAQ
+                  Model
                 </a>
               </li>
               <li>
@@ -235,22 +167,22 @@ export default function LptRcPage() {
               </li>
               <li>
                 <a
-                  href="#independence"
+                  href="#pilot"
                   className="nav-link"
-                  id="link-independence"
+                  id="link-pilot"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Independence
+                  Pilot
                 </a>
               </li>
               <li>
                 <a
-                  href="#founder"
+                  href="#publications"
                   className="nav-link"
-                  id="link-founder"
+                  id="link-publications"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Founder
+                  Publications
                 </a>
               </li>
               <li>
@@ -277,47 +209,43 @@ export default function LptRcPage() {
       </header>
 
       <main id="main-content" role="main" className="flex-1">
-        {/* 6.2 Hero Section */}
+        {/* 1. Hero Section */}
         <section className="section hero-section" id="hero" aria-labelledby="hero-title">
           <div className="container">
-            <span className="section-eyebrow" id="hero-badge">UNIVERSITY PARTNERSHIP INITIATIVE</span>
+            <span className="section-eyebrow" id="hero-badge">ACADEMIC PARTNERSHIP INITIATIVE</span>
             <h1 id="hero-title" className="text-3xl md:text-5xl font-serif text-[var(--color-navy)] mb-3 leading-tight tracking-tight">
               Operationalising and Testing a Generative Architecture of Personality
             </h1>
             <p className="hero-subtitle">
-              A proposed 12-month Russian–English pilot of eight manifestations, three coordinates, and 28 structural relations
+              A proposed Russian–English pilot of eight manifestations, three coordinates, and 28 structural relations
             </p>
 
+            {/* Authoritative Status Line */}
+            <div className="mt-4 mb-5">
+              <span className="status-badge-compact font-semibold" style={{ fontSize: '0.9375rem', padding: '0.45rem 1rem', display: 'inline-block', backgroundColor: '#e8f2f3', color: '#15464a', border: '1px solid #b6d7d9', borderRadius: '4px' }}>
+                Founder-led research initiative · University Academic Co-Lead sought · Pilot subject to joint design and funding
+              </span>
+            </div>
+
             <div className="positioning-statement" id="positioning-quote">
-              “An independent international research network advancing a generative, language-grounded science of personality.”
+              “Can the proposed LPT distinctions be independently identified and tested across Russian and English, including against plausible alternative explanations?”
             </div>
 
             <p className="hero-intro">
-              LPT-RC invites a university partner to co-design and host a 12-month pilot that translates an already specified theoretical architecture into independent bilingual operationalisations and a preregisterable empirical test. The project asks whether LPT’s upstream structure is psychologically discriminable before resources are committed to downstream trait, configuration, developmental, social, embodied, or applied claims.
+              Language Personality Theory Research Collaborative (LPT-RC) invites a university-based Academic Co-Lead to co-design and host an empirical pilot translating a specified theoretical architecture into independent bilingual operationalisations and a preregisterable test. The project asks whether LPT’s upstream structure is psychologically discriminable before resources are committed to downstream trait, developmental, embodied, or applied claims.
             </p>
 
             <div className="btn-group">
-              {hasConfiguredEmail ? (
-                <a
-                  href={`mailto:${CONTACT_EMAIL}?subject=LPT-RC%20Scientific%20Scoping%20Meeting`}
-                  className="btn btn-primary"
-                  id="hero-meeting-action"
-                >
-                  Request a Scientific Scoping Meeting
-                </a>
-              ) : (
-                <button
-                  type="button"
-                  className="btn btn-disabled cursor-not-allowed"
-                  title="Contact details forthcoming"
-                  disabled
-                >
-                  Contact details forthcoming
-                </button>
-              )}
+              <a
+                href={`mailto:${CONTACT_EMAIL}?subject=LPT-RC%20Scientific%20Scoping%20Meeting`}
+                className="btn btn-primary"
+                id="hero-meeting-action"
+              >
+                Request a Scientific Scoping Meeting
+              </a>
 
               <a
-                href="https://doi.org/10.5281/zenodo.22727605"
+                href={MANUSCRIPT_DOI}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-secondary inline-flex items-center gap-1.5"
@@ -328,73 +256,91 @@ export default function LptRcPage() {
               </a>
 
               <a
-                href="/assets/LPT_RC_University_Concept_Note_v0.2.pdf"
-                download="LPT_RC_University_Concept_Note_v0.2.pdf"
+                href={CONCEPT_NOTE_PDF}
+                download="LPT_RC_University_Concept_Note_v0.3.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-outline"
+                className="btn btn-outline inline-flex items-center gap-1.5"
                 id="hero-concept-link"
-                title="Download University Concept Note v0.2 (PDF)"
+                title="Download University Concept Note v0.3 (PDF)"
               >
-                Download University Concept Note v0.2
+                <Download className="w-3.5 h-3.5 opacity-80" />
+                <span>Download University Concept Note v0.3</span>
               </a>
-            </div>
-
-            <div className="mt-8">
-              <span className="status-badge-compact" id="hero-status-pill">
-                Independent research initiative · Seeking university and methodological partners · No institutional affiliation or endorsement implied
-              </span>
             </div>
           </div>
         </section>
 
-        {/* 6.3 Research Problem */}
-        <section className="section" id="about" aria-labelledby="problem-heading">
-          <div className="container container-narrow">
+        {/* 2. Research Questions Section */}
+        <section className="section" id="questions" aria-labelledby="questions-heading">
+          <div className="container">
             <div className="section-header">
-              <span className="section-eyebrow">Theoretical Problem</span>
-              <h2 id="problem-heading">Why test an architecture of personality?</h2>
+              <span className="section-eyebrow">Scientific Enquiry</span>
+              <h2 id="questions-heading">The central research question</h2>
+              <p>
+                Can the proposed structural distinctions of Language Personality Theory be operationalised, measured, and empirically corroborated in natural language and psychological data across Russian and English?
+              </p>
             </div>
 
-            <p>
-              Personality science has strong taxonomies and increasingly sophisticated process models, yet between-person structure does not by itself determine how psychological functions are organised within a person.
-            </p>
-            <p>
-              An architectural theory must specify components and relations, derive risky consequences from them, compare those consequences with plausible alternatives, and state where failure would require revision.
-            </p>
+            <div className="grid-2" style={{ marginBottom: '2rem' }}>
+              <div className="academic-card">
+                <span className="font-mono text-xs font-bold text-[var(--color-teal)] uppercase">Question 01 · Manifestations</span>
+                <h4 className="mt-1 mb-2 font-serif text-lg text-[var(--color-navy)]">Construct discriminability</h4>
+                <p className="text-sm text-[var(--color-text-main)] mb-0">
+                  Are the eight proposed manifestations (Needs, Perception, Emotions, Actions, Values, Thought, Evaluation, and Speech) empirically discriminable from one another, and can independent judges identify them reliably in natural language production?
+                </p>
+              </div>
 
-            <div className="derivation-callout border-l-[var(--color-navy)] mt-6" id="clarification-panel">
+              <div className="academic-card">
+                <span className="font-mono text-xs font-bold text-[var(--color-teal)] uppercase">Question 02 · Coordinates</span>
+                <h4 className="mt-1 mb-2 font-serif text-lg text-[var(--color-navy)]">Coordinate recovery</h4>
+                <p className="text-sm text-[var(--color-text-main)] mb-0">
+                  Do the three proposed binary coordinates (Subjective–Objective, Natural–Social, and Inter–Intrapersonal) emerge as robust, recoverable structuring dimensions across bilingual Russian–English text and behavioral data?
+                </p>
+              </div>
+
+              <div className="academic-card">
+                <span className="font-mono text-xs font-bold text-[var(--color-teal)] uppercase">Question 03 · Structural Relations</span>
+                <h4 className="mt-1 mb-2 font-serif text-lg text-[var(--color-navy)]">Relational distinctiveness</h4>
+                <p className="text-sm text-[var(--color-text-main)] mb-0">
+                  Do the 28 pairwise relations correspond to psychologically distinct dialectical tensions or contradiction classes, or are they better explained by parsimonious alternatives such as valence, arousal, or conventional trait axes?
+                </p>
+              </div>
+
+              <div className="academic-card">
+                <span className="font-mono text-xs font-bold text-[var(--color-teal)] uppercase">Question 04 · Cross-Linguistic Stability</span>
+                <h4 className="mt-1 mb-2 font-serif text-lg text-[var(--color-navy)]">Bilingual invariance</h4>
+                <p className="text-sm text-[var(--color-text-main)] mb-0">
+                  Do operationalised indicators demonstrate structural invariance across Russian and English, or are observed distinctions driven primarily by idiosyncratic lexical conventions and translation artifacts?
+                </p>
+              </div>
+            </div>
+
+            <div className="derivation-callout border-l-[var(--color-navy)]" id="clarification-panel">
               <p className="text-[0.9375rem] mb-0">
-                <strong>Clarification:</strong> In this website, <em>Language Personality Theory</em> refers to Sergey V. Golubkov’s specific theoretical programme and not to the broader linguistic concept sometimes described as “language personality”.
+                <strong>Clarification:</strong> In this initiative, <em>Language Personality Theory</em> refers specifically to Sergey V. Golubkov’s theoretical architecture and must not be confused with other linguistic uses of the phrase “language personality”.
               </p>
             </div>
           </div>
         </section>
 
-        {/* 6.4 Proposed Contribution & 6.5 Architecture at a Glance */}
-        <section className="section section-tinted" id="architecture" aria-labelledby="architecture-title">
+        {/* 3. The Model Section */}
+        <section className="section section-tinted" id="model" aria-labelledby="model-heading">
           <div className="container">
             <div className="section-header">
               <span className="section-eyebrow">Candidate Architecture</span>
-              <h2 id="architecture-title">A language-grounded candidate architecture</h2>
+              <h2 id="model-heading">The theoretical model: Personality Cube</h2>
               <p>
-                Language Personality Theory uses recurrent distinctions in natural language as defeasible constraints on a candidate architecture of eight manifestations organised by three binary coordinates.
-              </p>
-              <p>
-                Conditional on those assignments, the Personality Cube yields exactly 28 unordered structural relations: 12 one-dimensional, 12 two-dimensional, and 4 three-dimensional.
-              </p>
-              <p>
-                Their interpretation as psychologically distinct contradiction classes is a separate hypothesis. The current research programme therefore begins at the dependency root rather than treating the architecture or its downstream consequences as already validated.
+                Language Personality Theory proposes that psychological functioning is structured through eight manifestations arranged at the vertices of a 3-dimensional cube defined by three binary polar coordinates.
               </p>
             </div>
 
-            {/* 6.5 Visual Sequence */}
-            <h3 className="text-xl font-serif text-[var(--color-navy)] mt-8 mb-4">Architecture at a glance</h3>
-            <div className="sequence-flow" aria-label="Visual derivation sequence">
+            {/* Visual Sequence */}
+            <div className="sequence-flow mb-6" aria-label="Visual derivation sequence">
               <div className="flow-step">
                 <span className="flow-step-num">Step 01</span>
                 <div className="flow-step-title">Three binary coordinates</div>
-                <div className="flow-step-desc">Orthogonal structural axes (C₁, C₂, C₃ ∈ &#123;0, 1&#125;)</div>
+                <div className="flow-step-desc">Subjective–Objective · Natural–Social · Inter–Intrapersonal</div>
               </div>
               <div className="flow-step">
                 <span className="flow-step-num">Step 02</span>
@@ -403,26 +349,31 @@ export default function LptRcPage() {
               </div>
               <div className="flow-step">
                 <span className="flow-step-num">Step 03</span>
-                <div className="flow-step-title">28 unordered relations</div>
-                <div className="flow-step-desc">Pairwise vertex combinations (8 × 7 / 2 = 28)</div>
+                <div className="flow-step-title">28 formal relations</div>
+                <div className="flow-step-desc">Pairwise geometric combinations (8 × 7 / 2 = 28)</div>
               </div>
               <div className="flow-step">
                 <span className="flow-step-num">Step 04</span>
                 <div className="flow-step-title">Dimensional breakdown</div>
-                <div className="flow-step-desc">12 1D relations + 12 2D relations + 4 3D relations</div>
+                <div className="flow-step-desc">12 1D edges + 12 2D face diagonals + 4 3D space diagonals</div>
               </div>
             </div>
 
-            {/* Non-negotiable scientific callout: Prominent statement */}
+            {/* Authoritative Epistemological Distinction Callout */}
             <div className="derivation-callout" id="derivation-statement">
-              <div className="derivation-callout-title">Formal derivation is not empirical validation.</div>
-              <p>
-                The formal architecture specifies which relations follow from the proposed assignments. Independent semantic, psychological, bilingual, and comparative research must determine whether those distinctions are recoverable, discriminable, and useful.
+              <div className="derivation-callout-title">Formal derivation is not empirical validation · Three distinct claims</div>
+              <p className="mb-2">
+                The mathematical count of 28 pairwise relations and the 1–3–3–1 structural distance pattern are formal geometric properties of the Personality Cube. LPT-RC strictly distinguishes three separate claims:
               </p>
+              <ul className="text-xs space-y-1.5 text-slate-700 list-disc pl-4 mb-0">
+                <li><strong>Eight manifestations:</strong> Proposed functional components of the candidate personality architecture arranged across three bipolar coordinates.</li>
+                <li><strong>28 pairwise structural relations:</strong> Formal geometric combinations (12 edges, 12 face diagonals, 4 space diagonals); whether they correspond to psychologically distinguishable relations or contradiction classes is an untested hypothesis.</li>
+                <li><strong>Generativity III &amp; eight idealised configurations:</strong> Generativity III proposes eight idealised whole-person configurations (one per focal manifestation) with a 1–3–3–1 structural-distance pattern. The proposed relationship between structural distance and psychological accessibility is a separate, testable hypothesis—Cube geometry alone does not establish an accessibility ordering or prove that real people fall into eight discrete personality classes.</li>
+              </ul>
             </div>
 
-            {/* Authentic Conceptual Architecture Graphic (The Personality Cube) */}
-            <div className="cube-visual-wrapper" id="cube-diagram">
+            {/* Personality Cube Diagram Component */}
+            <div className="cube-visual-wrapper mt-6" id="cube-diagram">
               <div className="text-center mb-3">
                 <span className="inline-block text-[11px] font-mono font-bold tracking-wider text-[var(--color-teal)] uppercase bg-[var(--color-teal-light)] px-2.5 py-1 rounded">
                   AUTHENTIC THEORETICAL GEOMETRY
@@ -514,32 +465,28 @@ export default function LptRcPage() {
                 )}
               </div>
 
+              {/* Cube SVG Rendering */}
               <div className="cube-svg-container relative select-none">
                 <svg viewBox="0 0 740 440" width="100%" height="auto" role="img" aria-labelledby="cube-title cube-desc">
                   <title id="cube-title">Authentic Personality Cube Candidate Architecture Schema</title>
                   <desc id="cube-desc">
-                    A canonical oblique parallel projection of the Personality Cube showing 8 psychological manifestations (Values, Thought, Evaluation, Speech, Needs, Perception, Emotions, Actions) and 3 orthogonal coordinate axes: natural-social, subjective-objective, and inter-intrapersonal.
+                    A canonical oblique parallel projection of the Personality Cube showing 8 psychological manifestations and 3 orthogonal coordinate axes.
                   </desc>
 
                   {/* 1. Dashed Hidden Internal Edges (Meeting at Needs / Origin) */}
                   <g strokeLinecap="round">
-                    {/* Vertical axis: Needs (290, 270) -> Values (290, 80) */}
                     <line
                       x1="290" y1="270" x2="290" y2="80"
                       stroke={hoveredVertex === 'v-needs' || hoveredVertex === 'v-values' ? '#206266' : '#112238'}
                       strokeWidth={hoveredVertex === 'v-needs' || hoveredVertex === 'v-values' ? 3.5 : 2.5}
                       strokeDasharray="7,5"
                     />
-
-                    {/* Horizontal axis: Needs (290, 270) -> Perception (570, 270) */}
                     <line
                       x1="290" y1="270" x2="570" y2="270"
                       stroke={hoveredVertex === 'v-needs' || hoveredVertex === 'v-perception' ? '#206266' : '#112238'}
                       strokeWidth={hoveredVertex === 'v-needs' || hoveredVertex === 'v-perception' ? 3.5 : 2.5}
                       strokeDasharray="7,5"
                     />
-
-                    {/* Depth axis: Needs (290, 270) -> Emotions (160, 365) */}
                     <line
                       x1="290" y1="270" x2="160" y2="365"
                       stroke={hoveredVertex === 'v-needs' || hoveredVertex === 'v-emotions' ? '#206266' : '#112238'}
@@ -550,98 +497,59 @@ export default function LptRcPage() {
 
                   {/* 2. Red Axis Labels along the 3 dashed orthogonal axes */}
                   <g fontFamily="Georgia, Cambria, serif" fontStyle="normal" fontSize="13.5" fontWeight="600" fill="#b91c1c">
-                    {/* Vertical axis text: natural - social */}
-                    <text
-                      x="276"
-                      y="175"
-                      textAnchor="middle"
-                      transform="rotate(-90, 276, 175)"
-                      letterSpacing="0.02em"
-                    >
+                    <text x="276" y="175" textAnchor="middle" transform="rotate(-90, 276, 175)" letterSpacing="0.02em">
                       natural - social
                     </text>
-
-                    {/* Horizontal axis text: subjective - objective */}
-                    <text
-                      x="430"
-                      y="254"
-                      textAnchor="middle"
-                      letterSpacing="0.02em"
-                    >
+                    <text x="430" y="254" textAnchor="middle" letterSpacing="0.02em">
                       subjective - objective
                     </text>
-
-                    {/* Depth axis text: inter - intrapersonal */}
-                    <text
-                      x="225"
-                      y="308"
-                      textAnchor="middle"
-                      transform="rotate(-36.16, 225, 308)"
-                      letterSpacing="0.02em"
-                    >
+                    <text x="225" y="308" textAnchor="middle" transform="rotate(-36.16, 225, 308)" letterSpacing="0.02em">
                       inter - intrapersonal
                     </text>
                   </g>
 
                   {/* 3. Solid External Edges (9 edges) */}
                   <g strokeLinecap="round" strokeLinejoin="round">
-                    {/* Front Face: Evaluation (160, 175) -> Speech (440, 175) */}
                     <line
                       x1="160" y1="175" x2="440" y2="175"
                       stroke={hoveredVertex === 'v-evaluation' || hoveredVertex === 'v-speech' ? '#206266' : '#112238'}
                       strokeWidth={hoveredVertex === 'v-evaluation' || hoveredVertex === 'v-speech' ? 3.8 : 2.6}
                     />
-
-                    {/* Front Face: Speech (440, 175) -> Actions (440, 365) */}
                     <line
                       x1="440" y1="175" x2="440" y2="365"
                       stroke={hoveredVertex === 'v-speech' || hoveredVertex === 'v-actions' ? '#206266' : '#112238'}
                       strokeWidth={hoveredVertex === 'v-speech' || hoveredVertex === 'v-actions' ? 3.8 : 2.6}
                     />
-
-                    {/* Front Face: Actions (440, 365) -> Emotions (160, 365) */}
                     <line
                       x1="440" y1="365" x2="160" y2="365"
                       stroke={hoveredVertex === 'v-actions' || hoveredVertex === 'v-emotions' ? '#206266' : '#112238'}
                       strokeWidth={hoveredVertex === 'v-actions' || hoveredVertex === 'v-emotions' ? 3.8 : 2.6}
                     />
-
-                    {/* Front Face: Emotions (160, 365) -> Evaluation (160, 175) */}
                     <line
                       x1="160" y1="365" x2="160" y2="175"
                       stroke={hoveredVertex === 'v-emotions' || hoveredVertex === 'v-evaluation' ? '#206266' : '#112238'}
                       strokeWidth={hoveredVertex === 'v-emotions' || hoveredVertex === 'v-evaluation' ? 3.8 : 2.6}
                     />
-
-                    {/* Back Face Top: Values (290, 80) -> Thought (570, 80) */}
                     <line
                       x1="290" y1="80" x2="570" y2="80"
                       stroke={hoveredVertex === 'v-values' || hoveredVertex === 'v-thought' ? '#206266' : '#112238'}
                       strokeWidth={hoveredVertex === 'v-values' || hoveredVertex === 'v-thought' ? 3.8 : 2.6}
                     />
-
-                    {/* Back Face Right: Thought (570, 80) -> Perception (570, 270) */}
                     <line
                       x1="570" y1="80" x2="570" y2="270"
                       stroke={hoveredVertex === 'v-thought' || hoveredVertex === 'v-perception' ? '#206266' : '#112238'}
                       strokeWidth={hoveredVertex === 'v-thought' || hoveredVertex === 'v-perception' ? 3.8 : 2.6}
                     />
-
-                    {/* Connecting Depth: Evaluation (160, 175) -> Values (290, 80) */}
                     <line
                       x1="160" y1="175" x2="290" y2="80"
                       stroke={hoveredVertex === 'v-evaluation' || hoveredVertex === 'v-values' ? '#206266' : '#112238'}
                       strokeWidth={hoveredVertex === 'v-evaluation' || hoveredVertex === 'v-values' ? 3.8 : 2.6}
                     />
-
-                    {/* Connecting Depth: Speech (440, 175) -> Thought (570, 80) */}
                     <line
                       x1="440" y1="175" x2="570" y2="80"
                       stroke={hoveredVertex === 'v-speech' || hoveredVertex === 'v-thought' ? '#206266' : '#112238'}
                       strokeWidth={hoveredVertex === 'v-speech' || hoveredVertex === 'v-thought' ? 3.8 : 2.6}
                     />
-
-                    {/* Connecting Depth: Actions (440, 365) -> Perception (570, 270) */}
                     <line
                       x1="440" y1="365" x2="570" y2="270"
                       stroke={hoveredVertex === 'v-actions' || hoveredVertex === 'v-perception' ? '#206266' : '#112238'}
@@ -649,105 +557,20 @@ export default function LptRcPage() {
                     />
                   </g>
 
-                  {/* 4. Eight Interactive Vertices & Labels */}
+                  {/* 4. Eight Interactive Vertices */}
                   {[
-                    {
-                      id: 'v-values',
-                      locus: 'Values',
-                      vector: '(0, 1, 0)',
-                      cx: 290,
-                      cy: 80,
-                      textX: 272,
-                      textY: 64,
-                      textAnchor: 'end' as const,
-                      desc: 'C₁=0, C₂=1, C₃=0 · Social · Subjective · Interpersonal',
-                    },
-                    {
-                      id: 'v-thought',
-                      locus: 'Thought',
-                      vector: '(1, 1, 0)',
-                      cx: 570,
-                      cy: 80,
-                      textX: 588,
-                      textY: 84,
-                      textAnchor: 'start' as const,
-                      desc: 'C₁=1, C₂=1, C₃=0 · Social · Objective · Interpersonal',
-                    },
-                    {
-                      id: 'v-evaluation',
-                      locus: 'Evaluation',
-                      vector: '(0, 1, 1)',
-                      cx: 160,
-                      cy: 175,
-                      textX: 142,
-                      textY: 180,
-                      textAnchor: 'end' as const,
-                      desc: 'C₁=0, C₂=1, C₃=1 · Social · Subjective · Intrapersonal',
-                    },
-                    {
-                      id: 'v-speech',
-                      locus: 'Speech',
-                      vector: '(1, 1, 1)',
-                      cx: 440,
-                      cy: 175,
-                      textX: 458,
-                      textY: 180,
-                      textAnchor: 'start' as const,
-                      desc: 'C₁=1, C₂=1, C₃=1 · Social · Objective · Intrapersonal',
-                    },
-                    {
-                      id: 'v-needs',
-                      locus: 'Needs',
-                      vector: '(0, 0, 0)',
-                      cx: 290,
-                      cy: 270,
-                      textX: 272,
-                      textY: 258,
-                      textAnchor: 'end' as const,
-                      desc: 'C₁=0, C₂=0, C₃=0 · Origin · Natural · Subjective · Interpersonal',
-                    },
-                    {
-                      id: 'v-perception',
-                      locus: 'Perception',
-                      vector: '(1, 0, 0)',
-                      cx: 570,
-                      cy: 270,
-                      textX: 588,
-                      textY: 274,
-                      textAnchor: 'start' as const,
-                      desc: 'C₁=1, C₂=0, C₃=0 · Natural · Objective · Interpersonal',
-                    },
-                    {
-                      id: 'v-emotions',
-                      locus: 'Emotions',
-                      vector: '(0, 0, 1)',
-                      cx: 160,
-                      cy: 365,
-                      textX: 142,
-                      textY: 370,
-                      textAnchor: 'end' as const,
-                      desc: 'C₁=0, C₂=0, C₃=1 · Natural · Subjective · Intrapersonal',
-                    },
-                    {
-                      id: 'v-actions',
-                      locus: 'Actions',
-                      vector: '(1, 0, 1)',
-                      cx: 440,
-                      cy: 365,
-                      textX: 458,
-                      textY: 378,
-                      textAnchor: 'start' as const,
-                      desc: 'C₁=1, C₂=0, C₃=1 · Natural · Objective · Intrapersonal',
-                    },
+                    { id: 'v-values', locus: 'Values', vector: '(0, 1, 0)', cx: 290, cy: 80, textX: 272, textY: 64, textAnchor: 'end' as const, desc: 'Social · Subjective · Interpersonal' },
+                    { id: 'v-thought', locus: 'Thought', vector: '(1, 1, 0)', cx: 570, cy: 80, textX: 588, textY: 84, textAnchor: 'start' as const, desc: 'Social · Objective · Interpersonal' },
+                    { id: 'v-evaluation', locus: 'Evaluation', vector: '(0, 1, 1)', cx: 160, cy: 175, textX: 142, textY: 180, textAnchor: 'end' as const, desc: 'Social · Subjective · Intrapersonal' },
+                    { id: 'v-speech', locus: 'Speech', vector: '(1, 1, 1)', cx: 440, cy: 175, textX: 458, textY: 180, textAnchor: 'start' as const, desc: 'Social · Objective · Intrapersonal' },
+                    { id: 'v-needs', locus: 'Needs', vector: '(0, 0, 0)', cx: 290, cy: 270, textX: 272, textY: 258, textAnchor: 'end' as const, desc: 'Origin · Natural · Subjective · Interpersonal' },
+                    { id: 'v-perception', locus: 'Perception', vector: '(1, 0, 0)', cx: 570, cy: 270, textX: 588, textY: 274, textAnchor: 'start' as const, desc: 'Natural · Objective · Interpersonal' },
+                    { id: 'v-emotions', locus: 'Emotions', vector: '(0, 0, 1)', cx: 160, cy: 365, textX: 142, textY: 370, textAnchor: 'end' as const, desc: 'Natural · Subjective · Intrapersonal' },
+                    { id: 'v-actions', locus: 'Actions', vector: '(1, 0, 1)', cx: 440, cy: 365, textX: 458, textY: 378, textAnchor: 'start' as const, desc: 'Natural · Objective · Intrapersonal' },
                   ].map((v) => {
                     const isHovered = hoveredVertex === v.id;
                     const isCopied = copiedVertex === v.id;
-                    const copyString =
-                      cubeDisplayMode === 'names'
-                        ? v.locus
-                        : cubeDisplayMode === 'vectors'
-                        ? v.vector
-                        : `${v.locus} ${v.vector}`;
+                    const copyStr = cubeDisplayMode === 'names' ? v.locus : cubeDisplayMode === 'vectors' ? v.vector : `${v.locus} ${v.vector}`;
 
                     return (
                       <g
@@ -759,84 +582,42 @@ export default function LptRcPage() {
                         aria-label={`${v.locus} vertex, formal coordinate vector ${v.vector}, ${v.desc}. Click to copy.`}
                         onMouseEnter={() => setHoveredVertex(v.id)}
                         onMouseLeave={() => setHoveredVertex(null)}
-                        onClick={() => handleCopyCoordinate(copyString, v.id)}
+                        onClick={() => handleCopyCoordinate(copyStr, v.id)}
                         onKeyDown={(e) => {
                           if (e.key === 'Enter' || e.key === ' ') {
                             e.preventDefault();
-                            handleCopyCoordinate(copyString, v.id);
+                            handleCopyCoordinate(copyStr, v.id);
                           }
                         }}
                       >
-                        {/* Interactive Click Hitbox */}
                         <circle cx={v.cx} cy={v.cy} r={22} fill="transparent" />
-
-                        {/* Outer Focus/Hover Glow Ring */}
                         {isHovered && (
-                          <circle
-                            cx={v.cx}
-                            cy={v.cy}
-                            r={13}
-                            fill="none"
-                            stroke="#206266"
-                            strokeWidth={2.5}
-                            strokeOpacity={0.65}
-                          />
+                          <circle cx={v.cx} cy={v.cy} r={13} fill="none" stroke="#206266" strokeWidth={2.5} strokeOpacity={0.65} />
                         )}
-
-                        {/* Canonical Vertex Circle: White body with solid dark outline */}
                         <circle
                           cx={v.cx}
                           cy={v.cy}
                           r={isHovered ? 8 : 7}
                           fill={isCopied ? '#059669' : isHovered ? '#206266' : '#ffffff'}
-                          stroke={isCopied ? '#059669' : isHovered ? '#112238' : '#112238'}
+                          stroke={isCopied ? '#059669' : '#112238'}
                           strokeWidth={isHovered ? 3 : 2.6}
                           className="transition-all duration-150"
                         />
-
-                        {/* Text Label */}
-                        <text
-                          x={v.textX}
-                          y={v.textY}
-                          textAnchor={v.textAnchor}
-                          className="transition-all duration-150 select-none"
-                        >
+                        <text x={v.textX} y={v.textY} textAnchor={v.textAnchor} className="transition-all duration-150 select-none">
                           {cubeDisplayMode === 'vectors' ? (
-                            <tspan
-                              fontFamily="ui-monospace, monospace"
-                              fontSize={isHovered || isCopied ? '13' : '12'}
-                              fontWeight={isHovered || isCopied ? '700' : '600'}
-                              fill={isCopied ? '#047857' : isHovered ? '#206266' : '#112238'}
-                            >
+                            <tspan fontFamily="ui-monospace, monospace" fontSize={isHovered || isCopied ? '13' : '12'} fontWeight={isHovered || isCopied ? '700' : '600'} fill={isCopied ? '#047857' : isHovered ? '#206266' : '#112238'}>
                               {isCopied ? '✓ Copied' : v.vector}
                             </tspan>
                           ) : cubeDisplayMode === 'names' ? (
-                            <tspan
-                              fontFamily="Georgia, Cambria, serif"
-                              fontSize={isHovered || isCopied ? '18' : '17'}
-                              fontWeight={isHovered || isCopied ? '700' : '600'}
-                              fill={isCopied ? '#047857' : isHovered ? '#206266' : '#112238'}
-                            >
+                            <tspan fontFamily="Georgia, Cambria, serif" fontSize={isHovered || isCopied ? '18' : '17'} fontWeight={isHovered || isCopied ? '700' : '600'} fill={isCopied ? '#047857' : isHovered ? '#206266' : '#112238'}>
                               {isCopied ? `✓ ${v.locus}` : v.locus}
                             </tspan>
                           ) : (
-                            /* Both Manifestation Name and Vector */
                             <>
-                              <tspan
-                                fontFamily="Georgia, Cambria, serif"
-                                fontSize={isHovered || isCopied ? '17' : '16'}
-                                fontWeight={isHovered || isCopied ? '700' : '600'}
-                                fill={isCopied ? '#047857' : isHovered ? '#206266' : '#112238'}
-                              >
+                              <tspan fontFamily="Georgia, Cambria, serif" fontSize={isHovered || isCopied ? '17' : '16'} fontWeight={isHovered || isCopied ? '700' : '600'} fill={isCopied ? '#047857' : isHovered ? '#206266' : '#112238'}>
                                 {isCopied ? `✓ ${v.locus}` : v.locus}
                               </tspan>
-                              <tspan
-                                dx="6"
-                                fontFamily="ui-monospace, monospace"
-                                fontSize="11.5"
-                                fontWeight="600"
-                                fill={isCopied ? '#047857' : isHovered ? '#206266' : '#64748b'}
-                              >
+                              <tspan dx="6" fontFamily="ui-monospace, monospace" fontSize="11.5" fontWeight="600" fill={isCopied ? '#047857' : isHovered ? '#206266' : '#64748b'}>
                                 {v.vector}
                               </tspan>
                             </>
@@ -848,7 +629,7 @@ export default function LptRcPage() {
                 </svg>
               </div>
 
-              {/* Quick Click-to-Copy Manifestation & Vector Bar */}
+              {/* Quick Copy Row */}
               <div className="mt-3 pt-3 border-t border-[var(--color-border)] flex flex-wrap items-center justify-center gap-1.5 text-xs">
                 <span className="text-[var(--color-text-light)] font-mono text-[11px] mr-1">Quick copy:</span>
                 {[
@@ -886,861 +667,523 @@ export default function LptRcPage() {
               </div>
 
               <p className="cube-caption mt-4">
-                <strong>Figure 1. Formal derivation schema (The Personality Cube).</strong> Oblique parallel projection corresponding directly to the author’s theoretical master specification. The candidate architecture pairs 3 orthogonal binary coordinates (<em>natural–social</em>, <em>subjective–objective</em>, and <em>inter–intrapersonal</em>) across 8 psychological manifestations (Needs, Perception, Values, Thought, Emotions, Actions, Evaluation, Speech). Dashed edges highlight the inner orthogonal axes meeting at Needs (the origin, 0,0,0).
+                <strong>Figure 1. Formal derivation schema (The Personality Cube).</strong> Oblique parallel projection corresponding directly to the author’s theoretical master specification. The candidate architecture pairs 3 orthogonal binary coordinates across 8 psychological manifestations.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Intellectual Context and Historical Reception */}
-        <section className="section section-tinted" id="intellectual-context" aria-labelledby="context-heading">
-          <div className="container">
-            <div className="section-header">
-              <span className="section-eyebrow">Theoretical Foundations &amp; Reception</span>
-              <h2 id="context-heading">Intellectual Context and Historical Reception</h2>
-              <p className="hero-intro" style={{ marginBottom: 0 }}>
-                Language Personality Theory is related to language-grounded approaches to personality, but it is not a conventional lexical trait model. LPT does not begin by collecting personality-descriptive adjectives and reducing them to statistical factors. It uses recurrent distinctions in natural language as defeasible constraints on a candidate part–whole architecture of psychological functions.
-              </p>
-            </div>
-
-            {/* Subsection 1: LPT and the Lexical Hypothesis */}
-            <div style={{ marginBottom: "3rem" }}>
-              <h3 className="text-xl font-bold mb-4" style={{ color: "var(--color-navy)" }}>
-                LPT and the Lexical Hypothesis
-              </h3>
-              <p className="text-base leading-relaxed text-[#4e5764] mb-4">
-                Conventional psycholexical approaches ask which personality characteristics become encoded in language and use trait-descriptive terms to identify dimensions of individual differences. Language Personality Theory asks a different question: what recurrent pre-theoretical distinctions in natural language may reveal about the functional components of personality and the relations among them.
-              </p>
-              <p className="text-base leading-relaxed text-[#4e5764] mb-6">
-                LPT is therefore architectural rather than primarily taxonomic. Its current formulation proposes eight manifestations organised by three coordinates, from which 28 structural relations are formally derived. Whether these manifestations and relations are psychologically discriminable remains an empirical question addressed by the LPT-RC research programme.
-              </p>
-
-              {/* Compact Comparison Table */}
-              <div
-                className="comparison-table-wrapper"
-                role="region"
-                aria-label="Comparison between conventional psycholexical models and Language Personality Theory"
-                tabIndex={0}
-              >
-                <table className="comparison-table">
-                  <caption className="sr-only">
-                    Comparison of Conventional Psycholexical Models and Language Personality Theory
-                  </caption>
-                  <thead>
-                    <tr>
-                      <th scope="col">Dimension</th>
-                      <th scope="col">Conventional psycholexical models</th>
-                      <th scope="col">Language Personality Theory</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">Primary linguistic material</th>
-                      <td>Personality-descriptive terms, especially trait adjectives</td>
-                      <td>Recurrent functional distinctions in natural language</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Main objective</th>
-                      <td>Identify trait dimensions or taxonomies</td>
-                      <td>Reconstruct and test a candidate part–whole architecture</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Typical output</th>
-                      <td>Factors, dimensions and trait categories</td>
-                      <td>Eight manifestations, three coordinates and 28 structural relations</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Status of language evidence</th>
-                      <td>Basis for deriving a trait structure</td>
-                      <td>Defeasible constraint on a theoretical architecture</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Central empirical question</th>
-                      <td>Which trait dimensions are reproduced?</td>
-                      <td>Are the proposed components, coordinates and relations independently recoverable and psychologically discriminable?</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              {/* Intellectual Lineage Note */}
-              <div className="intellectual-lineage-note">
-                <p className="text-[0.9375rem] leading-relaxed text-[#4e5764] mb-0">
-                  LPT is intellectually adjacent to the systematic reconstruction of the naïve picture of the human being in natural language associated with Juri Apresjan’s work in systematic lexicography. LPT extends this language-grounded starting point into a proposed psychological architecture. In this respect, it is better understood as a part–whole, or meronomic/partonomic, approach than as another taxonomy of personality descriptors.
-                </p>
-              </div>
-            </div>
-
-            {/* Subsection 2: Early Independent Commentary: C. George Boeree, 2003 */}
-            <div className="commentary-card" id="boeree-commentary">
-              <h3 className="text-xl font-bold mb-4" style={{ color: "var(--color-navy)" }}>
-                Early Independent Commentary: C. George Boeree, 2003
-              </h3>
-              <p className="text-[0.96875rem] leading-relaxed text-[#4e5764] mb-4">
-                In 2003, personality theorist C. George Boeree published an independent explanatory commentary on the original 2002 formulation of Language Personality Theory. Boeree summarised its eight proposed aspects, their organisation and the three-dimensional structure, and presented LPT as an attempt to move beyond statistical trait typologies towards a deeper integrative understanding of personality.
-              </p>
-              <p className="text-[0.96875rem] leading-relaxed text-[#4e5764] mb-5">
-                The commentary is historically significant because it documents an early independent and substantive reading of the theory by a psychologist specialising in personality theory and the history of psychology.
-              </p>
-
-              {/* Restrained Callout / Note */}
-              <div className="status-callout-note" role="note">
-                <p className="mb-0">
-                  <strong>Status of this source:</strong> Boeree’s text is an independent scholarly commentary on the original 2002 formulation. It is not a peer-reviewed empirical test, does not validate the current LPT architecture, and does not constitute endorsement by Shippensburg University.
-                </p>
-              </div>
-
-              <div className="mt-5">
-                <a
-                  href="https://webspace.ship.edu/cgboer/golubkov.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-sm btn-outline inline-flex items-center gap-1.5"
-                  id="boeree-link"
-                  title="Open Boeree's 2003 commentary on Shippensburg University academic webspace (opens in new tab)"
-                >
-                  <span>Read Boeree’s 2003 commentary</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 6.6 Research Questions */}
-        <section className="section" id="research-questions" aria-labelledby="rq-heading">
-          <div className="container">
-            <div className="section-header">
-              <span className="section-eyebrow">Falsifiable Inquiry</span>
-              <h2 id="rq-heading">Four questions for the flagship pilot</h2>
-              <p>
-                The proposed 12-month pilot is structured around four primary questions designed to challenge the candidate architecture before dependent claims are evaluated.
-              </p>
-            </div>
-
-            <div className="grid-2">
-              {/* Card 1 */}
-              <div className="academic-card" id="card-rq-1">
-                <span className="card-num">RESEARCH QUESTION 01</span>
-                <h3>Upstream architecture</h3>
-                <p>
-                  Can eight manifestations and their three coordinate assignments be recovered by independent semantic and psychological methods and outperform plausible alternative partitions?
-                </p>
-              </div>
-
-              {/* Card 2 */}
-              <div className="academic-card" id="card-rq-2">
-                <span className="card-num">RESEARCH QUESTION 02</span>
-                <h3>Generativity I</h3>
-                <p>
-                  Do selected relation identities retain discriminating information beyond general discrepancy, distress, negative affect, and global inconsistency?
-                </p>
-              </div>
-
-              {/* Card 3 */}
-              <div className="academic-card" id="card-rq-3">
-                <span className="card-num">RESEARCH QUESTION 03</span>
-                <h3>Cross-linguistic adequacy</h3>
-                <p>
-                  Can Russian and English materials preserve the intended functional distinctions without relying on transparent LPT labels or translation alone?
-                </p>
-              </div>
-
-              {/* Card 4 */}
-              <div className="academic-card" id="card-rq-4">
-                <span className="card-num">RESEARCH QUESTION 04</span>
-                <h3>Dependency-aware decision</h3>
-                <p>
-                  Do the results support progression to tests of recurrent handling and traits, accessibility and configurations, and person-specific development—or require upstream revision first?
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 6.7 Programme Logic */}
-        <section className="section section-tinted" id="logic" aria-labelledby="prog-logic-heading">
+        {/* Programme Logic: Foundation and Generativity Map */}
+        <section className="section section-tinted" id="logic" aria-labelledby="logic-heading">
           <div className="container container-narrow">
             <div className="section-header">
               <span className="section-eyebrow">Methodological Architecture</span>
-              <h2 id="prog-logic-heading">A dependency-aware research programme</h2>
+              <h2 id="logic-heading">A modular, dependency-aware research map</h2>
               <p>
-                Research cannot treat upstream and downstream hypotheses as independent. The programme advances in a strictly sequential, dependency-aware hierarchy:
+                The research programme has a common foundation and conditional branches. Some structures follow formally from the proposed LPT architecture; their psychological implications require separate empirical tests. Later studies depend on the measures and findings needed for each specific claim, rather than on a fixed year-by-year sequence.
               </p>
             </div>
 
-            {/* Vertical Top-Down Sequence */}
-            <ol className="list-none pl-0 flex flex-col gap-4 mb-8">
-              <li className="academic-card border-l-4 border-l-[var(--color-navy)]">
-                <div className="font-mono text-xs font-bold text-[var(--color-navy)] mb-1">
-                  STAGE 1 · FOUNDATION
-                </div>
-                <h4>1. Upstream architecture</h4>
-                <p className="mb-0 text-[0.9375rem] text-[var(--color-text-muted)]">
-                  Eight manifestations and three coordinate assignments.
-                </p>
-              </li>
+            {/* Adaptive Research Map Table */}
+            <div className="research-map-wrapper" role="region" aria-label="Research Programme Map" tabIndex={0}>
+              <table className="research-map-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style={{ width: '25%' }}>Stream</th>
+                    <th scope="col" style={{ width: '51%' }}>Content to communicate</th>
+                    <th scope="col" style={{ width: '24%' }}>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {/* Row 1: Foundation */}
+                  <tr>
+                    <td className="stream-col"><strong>Foundation</strong></td>
+                    <td className="content-col">
+                      LPT proposes eight manifestations arranged across three bipolar coordinates. The proposed pilot first asks whether these distinctions can be operationalised and discriminated independently.
+                    </td>
+                    <td className="status-col">
+                      <span className="map-badge map-badge-pilot">Proposed first pilot</span>
+                    </td>
+                  </tr>
 
-              <li className="academic-card border-l-4 border-l-[var(--color-teal)]">
-                <div className="font-mono text-xs font-bold text-[var(--color-teal)] mb-1">
-                  STAGE 2 · CONDITIONAL ON STAGE 1 GATE
-                </div>
-                <h4>2. Generativity I</h4>
-                <p className="mb-0 text-[0.9375rem] text-[var(--color-text-muted)]">
-                  Psychological distinctiveness of selected structural relation identities.
-                </p>
-              </li>
+                  {/* Row 2: Generativity I */}
+                  <tr>
+                    <td className="stream-col"><strong>Generativity I — relations</strong></td>
+                    <td className="content-col">
+                      Eight positions yield <strong>8 × 7 / 2 = 28 unordered pairs</strong> as a formal result. Whether particular relations are psychologically distinguishable is a separate empirical question; the pilot examines selected relations.
+                    </td>
+                    <td className="status-col">
+                      <span className="map-badge map-badge-formal">Formal derivation + initial empirical tests</span>
+                    </td>
+                  </tr>
 
-              <li className="academic-card border-l-4 border-l-[var(--color-teal)]">
-                <div className="font-mono text-xs font-bold text-[var(--color-teal)] mb-1">
-                  STAGE 3 · CONDITIONAL ON EARLIER GATES
-                </div>
-                <h4>3. Generativity II</h4>
-                <p className="mb-0 text-[0.9375rem] text-[var(--color-text-muted)]">
-                  Structural relations, recurrent handling, repeated states and behaviour, and possible trait-like regularities.
-                </p>
-              </li>
+                  {/* Row 3: Generativity II */}
+                  <tr>
+                    <td className="stream-col"><strong>Generativity II — recurrent patterns</strong></td>
+                    <td className="content-col">
+                      Test whether recurrent ways of handling contradictions contribute to repeated states and trait-like regularities, compared with established trait and contextual explanations.
+                    </td>
+                    <td className="status-col">
+                      <span className="map-badge map-badge-conditional">Conditional subsequent research</span>
+                    </td>
+                  </tr>
 
-              <li className="academic-card border-l-4 border-l-[var(--color-teal)]">
-                <div className="font-mono text-xs font-bold text-[var(--color-teal)] mb-1">
-                  STAGE 4 · CONDITIONAL ON EARLIER GATES
-                </div>
-                <h4>4. Generativity III</h4>
-                <p className="mb-0 text-[0.9375rem] text-[var(--color-text-muted)]">
-                  Structural distance, accessibility, and eight ideal configuration templates.
-                </p>
-              </li>
+                  {/* Row 4: Generativity III */}
+                  <tr>
+                    <td className="stream-col"><strong>Generativity III — configurations</strong></td>
+                    <td className="content-col">
+                      Around each focal manifestation, Cube geometry yields a <strong>1–3–3–1 structural-distance pattern</strong>; eight focal choices yield <strong>eight idealised whole-person templates</strong>. The proposed link between distance and psychological accessibility is an <strong>additional, independently testable hypothesis</strong>.
+                    </td>
+                    <td className="status-col">
+                      <span className="map-badge map-badge-template">Formal templates + separate psychological hypothesis</span>
+                    </td>
+                  </tr>
 
-              <li className="academic-card border-l-4 border-l-[var(--color-teal)]">
-                <div className="font-mono text-xs font-bold text-[var(--color-teal)] mb-1">
-                  STAGE 5 · CONDITIONAL ON EARLIER GATES
-                </div>
-                <h4>5. Person-specific bridge and Generativity IV</h4>
-                <p className="mb-0 text-[0.9375rem] text-[var(--color-text-muted)]">
-                  Within-person architectures and developmental transformation.
-                </p>
-              </li>
+                  {/* Row 5: Generativity IV */}
+                  <tr>
+                    <td className="stream-col"><strong>Generativity IV — development</strong></td>
+                    <td className="content-col">
+                      Test proposed developmental pathways and reorganisation of personality functioning with suitable longitudinal designs.
+                    </td>
+                    <td className="status-col">
+                      <span className="map-badge map-badge-longterm">Longer-term, conditional research</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-              <li className="academic-card border-l-4 border-l-[var(--color-ochre-border)]">
-                <div className="font-mono text-xs font-bold text-[var(--color-ochre-dark)] mb-1">
-                  STAGE 6 · STAGED EXTENSIONS · CONDITIONAL SEPARATE RESEARCH
-                </div>
-                <h4>6. Staged extensions</h4>
-                <p className="mb-0 text-[0.9375rem] text-[var(--color-text-muted)]">
-                  Social and dyadic patterns, embodied and physiological hypotheses, and independent DCC feasibility research.
-                </p>
-              </li>
-            </ol>
+            {/* Generativity III Template Clarification */}
+            <div className="derivation-callout" style={{ borderLeftColor: 'var(--color-teal)', backgroundColor: '#f8fafc', marginBottom: '1.5rem' }} id="generativity-iii-note">
+              <p style={{ fontSize: '0.9375rem', color: 'var(--color-navy)', marginBottom: 0, fontWeight: 500 }}>
+                The eight Generativity III templates are idealised configurations, not empirically established discrete personality types. A person may approximate one, combine several, change across contexts, or match none.
+              </p>
+            </div>
 
-            {/* Prominent Principle Callout */}
-            <div className="derivation-callout border-l-[var(--color-navy)]" id="failure-propagation-box">
+            {/* Failure Propagation & Localization Principle */}
+            <div className="derivation-callout" style={{ borderLeftColor: 'var(--color-navy)' }} id="propagation-principle">
               <div className="derivation-callout-title">Core Methodological Principle</div>
-              <p className="text-lg font-semibold text-[var(--color-navy)] mb-2">
+              <p style={{ fontSize: '1.0625rem', fontWeight: 600, color: 'var(--color-navy)', marginBottom: '0.5rem' }}>
                 “Upstream failure propagates. Downstream failure revises the dependent claim without automatically erasing independently supported structure.”
               </p>
-              <p className="text-sm text-[var(--color-text-muted)] mb-0">
-                Note: Social, embodied, somatic, or DCC extensions are not established consequences of the core architecture and require independent, staged evidence.
+              <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: 0 }}>
+                Failure to corroborate a dependent psychological hypothesis does not by itself invalidate the upstream formal geometry. Conversely, difficulties in measuring the foundation restrict the conclusions of all subsequent empirical studies that depend upon it.
+              </p>
+            </div>
+
+            {/* Exploratory directions beyond the current manuscript */}
+            <div style={{ marginTop: '2.25rem' }} id="exploratory-directions">
+              <div style={{ marginBottom: '1rem' }}>
+                <span className="section-eyebrow" style={{ color: 'var(--color-teal)' }}>Prospective Horizons</span>
+                <h3 style={{ fontSize: '1.25rem', color: 'var(--color-navy)', marginTop: '0.25rem', marginBottom: '0.35rem' }}>
+                  Exploratory directions beyond the current manuscript
+                </h3>
+              </div>
+
+              <div className="grid-2" style={{ marginBottom: '1.25rem' }}>
+                {/* Social and interpersonal research */}
+                <div className="academic-card" style={{ borderLeft: '4px solid var(--color-teal)' }} id="dir-social-interpersonal">
+                  <h4 style={{ color: 'var(--color-navy)', marginBottom: '0.5rem' }}>Social and interpersonal research</h4>
+                  <p style={{ fontSize: '0.9375rem', color: 'var(--color-text-main)', marginBottom: 0 }}>
+                    Can independently measured individual LPT relations support testable hypotheses about dyadic interaction, interpersonal contradictions, group dynamics, and team processes? Moving from one person’s architecture to interactions between people requires additional models and measures; team composition does not follow directly from the Cube.
+                  </p>
+                </div>
+
+                {/* Embodied and symbolic research */}
+                <div className="academic-card" style={{ borderLeft: '4px solid var(--color-teal)' }} id="dir-embodied-symbolic">
+                  <h4 style={{ color: 'var(--color-navy)', marginBottom: '0.5rem' }}>Embodied and symbolic research</h4>
+                  <p style={{ fontSize: '0.9375rem', color: 'var(--color-text-main)', marginBottom: 0 }}>
+                    Are particular LPT relations associated with reproducible patterns in how people symbolically describe bodily experience? The current manuscript discusses cognitive-somatic salience, but does not derive a bodily projection of all 28 relations. Physiological or clinical correspondences would require separate, stronger evidence.
+                  </p>
+                </div>
+              </div>
+
+              {/* DCC Separation Note */}
+              <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: 0 }}>
+                Dialectical Contradictions Coaching (DCC) belongs to a separate applied assessment programme; it does not form part of the academic architecture tested in this manuscript.
               </p>
             </div>
           </div>
         </section>
 
-        {/* 6.8 Flagship Pilot */}
-        <section className="section" id="pilot" aria-labelledby="pilot-title">
+        {/* 4. Collaboration Framework: "Who will do what?" Section */}
+        <section className="section" id="partnership" aria-labelledby="partnership-heading">
           <div className="container">
             <div className="section-header">
-              <span className="section-eyebrow">Proposed Collaboration</span>
-              <h2 id="pilot-title">A proposed 12-month core feasibility pilot</h2>
-              <p className="font-semibold text-[var(--color-navy)] text-lg mb-2">
-                Working title: Operationalising and Testing the Upstream Architecture and Generativity I of Language Personality Theory Across Russian and English
-              </p>
+              <span className="section-eyebrow">Academic Collaboration Model</span>
+              <h2 id="partnership-heading">Who will do what?</h2>
               <p>
-                The pilot translates the current 2026 scientific master into independent bilingual operationalisations and tests whether the eight manifestations, three coordinate assignments, and selected relation identities are psychologically discriminable.
+                At present, LPT-RC is a founder-led independent research initiative. Sergey V. Golubkov is currently its only confirmed participant. No university partner, academic co-lead, methods lead, research team, institutional sponsorship, or grant funding has yet been secured. The proposed roles and contributions are designed to ensure rigorous, independent scrutiny:
               </p>
             </div>
 
-            {/* 12-Month Visual Progress Indicator */}
-            <div className="bg-white border border-[var(--color-border)] rounded-lg p-5 sm:p-6 mb-10 shadow-xs" id="pilot-progress-indicator">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-4 border-b border-[var(--color-border)]">
-                <div>
-                  <div className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-[var(--color-teal)] bg-[var(--color-teal-light)] px-2.5 py-0.5 rounded mb-1.5">
-                    <Clock className="w-3.5 h-3.5" />
-                    <span>12-MONTH EXECUTION ROADMAP</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-[var(--color-navy)] mb-0">
-                    Flagship Pilot Phase Timeline & Accountability Gates
-                  </h3>
+            <div className="grid-2" style={{ marginBottom: '2.5rem' }}>
+              {/* Confirmed Theoretical Lead */}
+              <div className="academic-card" style={{ borderTop: '4px solid var(--color-navy)' }}>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <h3 className="font-serif text-lg text-[var(--color-navy)] mb-0">Sergey V. Golubkov, Ph.D.</h3>
+                  <span className="bg-[#e8f2f3] text-[#15464a] text-xs font-bold px-2 py-0.5 rounded border border-[#b6d7d9]">
+                    Confirmed · Founder
+                  </span>
                 </div>
-                <div className="flex items-center gap-2 self-start sm:self-auto text-xs font-mono text-[var(--color-text-light)] bg-slate-50 border border-slate-200 px-3 py-1.5 rounded">
-                  <Calendar className="w-3.5 h-3.5 text-[var(--color-teal)]" />
-                  <span>Total: 12 Months · 4 Gates</span>
-                </div>
+                <h4 className="text-xs uppercase tracking-wider text-[var(--color-teal)] font-bold mb-3">Founder and Theoretical Lead</h4>
+                <p className="text-sm text-[var(--color-text-main)] mb-2">
+                  Provides the LPT architecture, canonical source publications, and draft research materials; helps formulate testable claims and interpret what empirical findings mean for the theory.
+                </p>
+                <p className="text-xs text-[var(--color-text-muted)] italic mb-0">
+                  Contributes theoretical stewardship, draft materials, and founder time. Does not provide project funding or university infrastructure.
+                </p>
               </div>
 
-              {/* 12-Month Month Tick Ruler */}
-              <div className="mb-2">
-                <div className="text-[11px] font-mono text-[var(--color-text-light)] mb-1 flex items-center justify-between">
-                  <span>Month Progression (M01 – M12)</span>
-                  <span className="hidden sm:inline">Milestone Gates: M03, M06, M10, M12</span>
+              {/* University Academic Co-Lead - Partner Sought */}
+              <div className="academic-card" style={{ borderTop: '4px solid var(--color-teal)' }}>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <h3 className="font-serif text-lg text-[var(--color-navy)] mb-0">University Academic Co-Lead</h3>
+                  <span className="bg-amber-50 text-amber-900 text-xs font-bold px-2 py-0.5 rounded border border-amber-300">
+                    Partner Sought
+                  </span>
                 </div>
-                <div className="grid grid-cols-12 gap-1 text-center font-mono text-[11px]">
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((m) => {
-                    const phaseForMonth = m <= 3 ? 1 : m <= 6 ? 2 : m <= 10 ? 3 : 4;
-                    const isSelected = activePilotPhase === phaseForMonth;
-                    const isGate = m === 3 || m === 6 || m === 10 || m === 12;
-
-                    return (
-                      <button
-                        key={m}
-                        type="button"
-                        onClick={() => handleSelectPilotPhase(phaseForMonth)}
-                        className={`py-1 rounded border transition-all cursor-pointer relative ${
-                          isSelected
-                            ? phaseForMonth === 4
-                              ? 'bg-amber-100 text-amber-900 border-amber-300 font-bold'
-                              : 'bg-teal-50 text-[var(--color-teal)] border-[var(--color-teal)] font-bold'
-                            : 'bg-slate-50 text-[var(--color-text-light)] border-slate-200 hover:bg-slate-100'
-                        }`}
-                        title={`Month ${m} (Phase ${phaseForMonth})${isGate ? ' - Gate Milestone' : ''}`}
-                        aria-label={`Month ${m}, Phase ${phaseForMonth}`}
-                      >
-                        <span>M{m < 10 ? `0${m}` : m}</span>
-                        {isGate && (
-                          <span
-                            className={`absolute -top-1 -right-1 w-2 h-2 rounded-full ${
-                              phaseForMonth === 4 ? 'bg-amber-600' : 'bg-[var(--color-teal)]'
-                            }`}
-                            title="Decision Gate Milestone"
-                          />
-                        )}
-                      </button>
-                    );
-                  })}
-                </div>
+                <h4 className="text-xs uppercase tracking-wider text-[var(--color-text-muted)] font-bold mb-3">Institutional Principal Investigator</h4>
+                <p className="text-sm text-[var(--color-text-main)] mb-2">
+                  Co-designs the empirical study, brings independent scientific scrutiny and, subject to institutional agreement, leads its university-based implementation.
+                </p>
+                <p className="text-xs text-[var(--color-text-muted)] italic mb-0">
+                  Provides independent scientific challenge, oversees institutional hosting, and coordinates the university ethics and data-governance route.
+                </p>
               </div>
 
-              {/* Proportional Segmented Progress Track */}
-              <div className="flex flex-col md:flex-row gap-2 mt-4" role="tablist" aria-label="12-Month Pilot Phases">
-                {[
-                  {
-                    id: 1,
-                    phaseTag: 'Phase 1',
-                    title: 'Empirical specification',
-                    span: 'Months 1–3',
-                    monthsCount: '3 mos (25%)',
-                    widthClass: 'md:w-1/4',
-                    gateTag: 'Gate 1 · M3',
-                    cardId: 'pilot-phase-1',
-                    color: 'teal',
-                  },
-                  {
-                    id: 2,
-                    phaseTag: 'Phase 2',
-                    title: 'Bilingual operationalisation',
-                    span: 'Months 4–6',
-                    monthsCount: '3 mos (25%)',
-                    widthClass: 'md:w-1/4',
-                    gateTag: 'Gate 2 · M6',
-                    cardId: 'pilot-phase-2',
-                    color: 'navy',
-                  },
-                  {
-                    id: 3,
-                    phaseTag: 'Phase 3',
-                    title: 'Core feasibility study',
-                    span: 'Months 7–10',
-                    monthsCount: '4 mos (33%)',
-                    widthClass: 'md:w-1/3',
-                    gateTag: 'Gate 3 · M10',
-                    cardId: 'pilot-phase-3',
-                    color: 'teal-dark',
-                  },
-                  {
-                    id: 4,
-                    phaseTag: 'Phase 4',
-                    title: 'Dependency decision',
-                    span: 'Months 11–12',
-                    monthsCount: '2 mos (17%)',
-                    widthClass: 'md:w-1/6',
-                    gateTag: 'Decision · M12',
-                    cardId: 'pilot-phase-4',
-                    color: 'amber',
-                  },
-                ].map((phase) => {
-                  const isActive = activePilotPhase === phase.id;
-
-                  return (
-                    <button
-                      key={phase.id}
-                      type="button"
-                      role="tab"
-                      aria-selected={isActive}
-                      aria-controls={`phase-panel-${phase.id}`}
-                      onClick={() => handleSelectPilotPhase(phase.id)}
-                      className={`${phase.widthClass} w-full text-left p-3 rounded-lg border transition-all cursor-pointer flex flex-col justify-between relative group ${
-                        isActive
-                          ? phase.id === 4
-                            ? 'bg-amber-50/80 border-amber-400 ring-2 ring-amber-300 shadow-xs'
-                            : 'bg-teal-50/80 border-[var(--color-teal)] ring-2 ring-[var(--color-teal)]/30 shadow-xs'
-                          : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50/60'
-                      }`}
-                    >
-                      <div>
-                        <div className="flex items-center justify-between gap-1 mb-1">
-                          <span
-                            className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded ${
-                              isActive
-                                ? phase.id === 4
-                                  ? 'bg-amber-200 text-amber-900'
-                                  : 'bg-[var(--color-teal)] text-white'
-                                : 'bg-slate-100 text-slate-700'
-                            }`}
-                          >
-                            {phase.phaseTag}
-                          </span>
-                          <span className="font-mono text-[11px] text-[var(--color-text-light)]">
-                            {phase.monthsCount}
-                          </span>
-                        </div>
-                        <h4 className="text-sm font-semibold text-[var(--color-navy)] mb-1 leading-snug">
-                          {phase.title}
-                        </h4>
-                        <div className="font-mono text-xs text-[var(--color-text-muted)]">
-                          {phase.span}
-                        </div>
-                      </div>
-
-                      {/* Milestone Flag Tag */}
-                      <div className="mt-2 pt-2 border-t border-slate-200/80 flex items-center justify-between text-[11px] font-mono">
-                        <span className="flex items-center gap-1 text-[var(--color-text-light)]">
-                          <Flag className="w-3 h-3 text-[var(--color-teal)]" />
-                          <span>{phase.gateTag}</span>
-                        </span>
-                        {isActive && (
-                          <span className="text-[var(--color-teal)] font-bold text-xs">
-                            Active
-                          </span>
-                        )}
-                      </div>
-                    </button>
-                  );
-                })}
+              {/* Methods Lead - Partner Sought */}
+              <div className="academic-card" style={{ borderTop: '4px solid #4a5d78' }}>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <h3 className="font-serif text-lg text-[var(--color-navy)] mb-0">Methods Lead</h3>
+                  <span className="bg-amber-50 text-amber-900 text-xs font-bold px-2 py-0.5 rounded border border-amber-300">
+                    Partner Sought
+                  </span>
+                </div>
+                <h4 className="text-xs uppercase tracking-wider text-[var(--color-text-muted)] font-bold mb-3">Psychometrics &amp; Quantitative Methods</h4>
+                <p className="text-sm text-[var(--color-text-main)] mb-2">
+                  Designs comparisons with alternative explanations, measurement models, blinded classification protocols, and analysis pipelines.
+                </p>
+                <p className="text-xs text-[var(--color-text-muted)] italic mb-0">
+                  This role may be combined with the Academic Co-Lead if the requisite methodological and psychometric expertise is available.
+                </p>
               </div>
 
-              {/* Dynamic Phase Inspector Card */}
-              <div
-                id={`phase-panel-${activePilotPhase}`}
-                role="tabpanel"
-                className="mt-4 p-4 rounded-lg bg-slate-50/70 border border-slate-200"
-              >
-                {activePilotPhase === 1 && (
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="space-y-1.5 max-w-3xl">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="font-mono text-xs font-bold text-[var(--color-teal)] bg-teal-100 px-2 py-0.5 rounded">
-                          PHASE 1 · MONTHS 1–3 (Q1)
-                        </span>
-                        <span className="text-xs font-medium text-slate-600">
-                          Objective: Empirical specification & comparator models
-                        </span>
-                      </div>
-                      <p className="text-sm text-[var(--color-navy)] mb-0 font-medium">
-                        Converts the theoretical manuscript into a claim–assumption–test–failure register. Selects target manifestations, coordinates, relations, and prespecified competitor models.
-                      </p>
-                      <div className="text-xs text-[var(--color-text-muted)] flex flex-wrap items-center gap-1.5 pt-1">
-                        <span className="font-semibold text-[var(--color-navy)]">Deliverables:</span>
-                        <span className="px-2 py-0.5 bg-white border border-slate-200 rounded font-mono text-[11px]">Empirical Specification v1.0</span>
-                        <span className="px-2 py-0.5 bg-white border border-slate-200 rounded font-mono text-[11px]">Comparator matrix</span>
-                        <span className="mx-1 text-slate-300">|</span>
-                        <span className="font-semibold text-amber-900">Gate 1:</span>
-                        <span>Pass condition: Every target claim has independent operationalisation & auxiliary assumptions.</span>
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => handleSelectPilotPhase(1, 'pilot-phase-1', true)}
-                      className="self-start md:self-center shrink-0 flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-[var(--color-teal)] bg-white border border-[var(--color-teal)] rounded hover:bg-[var(--color-teal-light)] transition-colors cursor-pointer"
-                    >
-                      <span>Inspect Details</span>
-                      <ArrowDown className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                )}
-
-                {activePilotPhase === 2 && (
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="space-y-1.5 max-w-3xl">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="font-mono text-xs font-bold text-[var(--color-teal)] bg-teal-100 px-2 py-0.5 rounded">
-                          PHASE 2 · MONTHS 4–6 (Q2)
-                        </span>
-                        <span className="text-xs font-medium text-slate-600">
-                          Objective: Bilingual Russian–English operationalisation
-                        </span>
-                      </div>
-                      <p className="text-sm text-[var(--color-navy)] mb-0 font-medium">
-                        Develops matched Russian–English stimuli and independent indicators. Conducts multidisciplinary review, blinded classification, and material refinement.
-                      </p>
-                      <div className="text-xs text-[var(--color-text-muted)] flex flex-wrap items-center gap-1.5 pt-1">
-                        <span className="font-semibold text-[var(--color-navy)]">Deliverables:</span>
-                        <span className="px-2 py-0.5 bg-white border border-slate-200 rounded font-mono text-[11px]">Bilingual stimulus bank</span>
-                        <span className="px-2 py-0.5 bg-white border border-slate-200 rounded font-mono text-[11px]">Coding materials</span>
-                        <span className="px-2 py-0.5 bg-white border border-slate-200 rounded font-mono text-[11px]">Material-validity record</span>
-                        <span className="mx-1 text-slate-300">|</span>
-                        <span className="font-semibold text-amber-900">Gate 2:</span>
-                        <span>Pass condition: Blinded classification meets validity thresholds in RU & EN.</span>
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => handleSelectPilotPhase(2, 'pilot-phase-2', true)}
-                      className="self-start md:self-center shrink-0 flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-[var(--color-teal)] bg-white border border-[var(--color-teal)] rounded hover:bg-[var(--color-teal-light)] transition-colors cursor-pointer"
-                    >
-                      <span>Inspect Details</span>
-                      <ArrowDown className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                )}
-
-                {activePilotPhase === 3 && (
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="space-y-1.5 max-w-3xl">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="font-mono text-xs font-bold text-[var(--color-teal)] bg-teal-100 px-2 py-0.5 rounded">
-                          PHASE 3 · MONTHS 7–10 (Q3–Q4)
-                        </span>
-                        <span className="text-xs font-medium text-slate-600">
-                          Objective: Preregistered core feasibility study
-                        </span>
-                      </div>
-                      <p className="text-sm text-[var(--color-navy)] mb-0 font-medium">
-                        Conducts cognitive interviews and a small preregistered feasibility study under the university’s ethics and data-governance pathway.
-                      </p>
-                      <div className="text-xs text-[var(--color-text-muted)] flex flex-wrap items-center gap-1.5 pt-1">
-                        <span className="font-semibold text-[var(--color-navy)]">Deliverables:</span>
-                        <span className="px-2 py-0.5 bg-white border border-slate-200 rounded font-mono text-[11px]">Core pilot report</span>
-                        <span className="px-2 py-0.5 bg-white border border-slate-200 rounded font-mono text-[11px]">Documented revision log</span>
-                        <span className="mx-1 text-slate-300">|</span>
-                        <span className="font-semibold text-amber-900">Gate 3:</span>
-                        <span>Pass condition: Clean execution, coding reliability, and initial discriminability documented.</span>
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => handleSelectPilotPhase(3, 'pilot-phase-3', true)}
-                      className="self-start md:self-center shrink-0 flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-[var(--color-teal)] bg-white border border-[var(--color-teal)] rounded hover:bg-[var(--color-teal-light)] transition-colors cursor-pointer"
-                    >
-                      <span>Inspect Details</span>
-                      <ArrowDown className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                )}
-
-                {activePilotPhase === 4 && (
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="space-y-1.5 max-w-3xl">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="font-mono text-xs font-bold text-amber-900 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded">
-                          PHASE 4 · MONTHS 11–12 (Q4)
-                        </span>
-                        <span className="text-xs font-medium text-amber-800">
-                          Objective: Dependency-aware decision & Year 1 stop rule
-                        </span>
-                      </div>
-                      <p className="text-sm text-[var(--color-navy)] mb-0 font-medium">
-                        Applies prespecified decision criteria. Prepares a confirmatory protocol, joint manuscript, and external funding case for the next justified generativity level.
-                      </p>
-                      <div className="text-xs text-[var(--color-text-muted)] flex flex-wrap items-center gap-1.5 pt-1">
-                        <span className="font-semibold text-[var(--color-navy)]">Deliverables:</span>
-                        <span className="px-2 py-0.5 bg-white border border-slate-200 rounded font-mono text-[11px]">Confirmatory protocol</span>
-                        <span className="px-2 py-0.5 bg-white border border-slate-200 rounded font-mono text-[11px]">Manuscript plan</span>
-                        <span className="px-2 py-0.5 bg-white border border-slate-200 rounded font-mono text-[11px]">Funding proposal</span>
-                        <span className="mx-1 text-slate-300">|</span>
-                        <span className="font-semibold text-amber-900">Stop Rule:</span>
-                        <span>If distinctiveness fails, stop or revise locally without progressing to downstream claims.</span>
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => handleSelectPilotPhase(4, 'pilot-phase-4', true)}
-                      className="self-start md:self-center shrink-0 flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-amber-800 bg-white border border-amber-400 rounded hover:bg-amber-50 transition-colors cursor-pointer"
-                    >
-                      <span>Inspect Details</span>
-                      <ArrowDown className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                )}
+              {/* Russian–English Contributor & Research Assistance */}
+              <div className="academic-card" style={{ borderTop: '4px solid #5a738e' }}>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <h3 className="font-serif text-lg text-[var(--color-navy)] mb-0">Russian–English Contributor &amp; Team</h3>
+                  <span className="bg-amber-50 text-amber-900 text-xs font-bold px-2 py-0.5 rounded border border-amber-300">
+                    Partner Sought
+                  </span>
+                </div>
+                <h4 className="text-xs uppercase tracking-wider text-[var(--color-text-muted)] font-bold mb-3">Cross-Linguistic &amp; Project Support</h4>
+                <p className="text-sm text-[var(--color-text-main)] mb-2">
+                  Develops and checks bilingual materials so that results do not depend on LPT terminology or translation artifacts alone.
+                </p>
+                <p className="text-xs text-[var(--color-text-muted)] italic mb-0">
+                  Research assistance and data support will be scoped with the partner according to the agreed design and available funding.
+                </p>
               </div>
             </div>
 
-            {/* Vertical Timeline: 4 Phases */}
-            <div className="timeline" role="region" aria-label="12-Month Pilot Timeline">
-              {/* Phase 1 */}
-              <div
-                className={`timeline-phase cursor-pointer transition-all p-3 rounded-lg ${
-                  activePilotPhase === 1 ? 'bg-teal-50/50 ring-1 ring-[var(--color-teal)]/30' : 'hover:bg-slate-50/60'
-                }`}
-                id="pilot-phase-1"
-                onClick={() => handleSelectPilotPhase(1)}
-              >
-                <div className="phase-header">
-                  <span className={`phase-tag ${activePilotPhase === 1 ? 'bg-[var(--color-teal)] text-white' : ''}`}>
-                    Months 1–3
-                  </span>
-                  <h3 className="phase-title">Phase 1 — Empirical specification</h3>
+            {/* Decision-Making and Governance Box */}
+            <div className="academic-card" style={{ borderLeft: '4px solid var(--color-navy)', marginBottom: '2rem' }}>
+              <h4 className="font-serif text-base text-[var(--color-navy)] mb-2">Decision-making and academic governance</h4>
+              <p className="text-sm text-[var(--color-text-main)] mb-2">
+                The founder contributes theoretical definitions and interpretation; empirical methods, analysis, and conclusions are determined jointly and remain open to independent scrutiny. University ethics and data decisions follow the eventual host institution’s procedures.
+              </p>
+              <p className="text-xs text-[var(--color-text-muted)] mb-0">
+                No sought role is portrayed as already filled. A university collaboration does not imply that an institution has already promised staff, participant access, sponsorship, ethics approval, or funding.
+              </p>
+            </div>
+
+            {/* Proposed Exchange */}
+            <div className="academic-card bg-slate-50 border border-slate-200">
+              <h4 className="font-serif text-base text-[var(--color-navy)] mb-2">Proposed exchange: what each party brings</h4>
+              <div className="grid-2 text-sm">
+                <div>
+                  <strong className="text-[var(--color-navy)] block mb-1">What the founder brings now:</strong>
+                  <ul className="list-disc pl-5 space-y-1 text-slate-700">
+                    <li>The complete LPT theoretical architecture and canonical publications</li>
+                    <li>Draft manifestation, relation, and stimulus materials</li>
+                    <li>Russian and English conceptual rationale and project coordination</li>
+                    <li>Founder time and participation in developing and interpreting the research</li>
+                  </ul>
                 </div>
-                <p>
-                  Convert the current theoretical manuscript into a claim–assumption–test–failure register. Select target manifestations, coordinates, relations, and prespecified comparator models.
-                </p>
-                <div className="phase-outputs">
-                  <strong>Primary outputs:</strong> Empirical Specification v1.0 and comparator matrix.
+                <div>
+                  <strong className="text-[var(--color-navy)] block mb-1">What the university partner would provide (subject to agreement):</strong>
+                  <ul className="list-disc pl-5 space-y-1 text-slate-700">
+                    <li>Academic co-lead and independent scientific challenge</li>
+                    <li>Design-specific power/precision analysis and psychometric oversight</li>
+                    <li>Institutional hosting and university ethics/data-governance review</li>
+                    <li>Joint exploration of research grant and external funding opportunities</li>
+                  </ul>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
 
-              {/* Phase 2 */}
-              <div
-                className={`timeline-phase cursor-pointer transition-all p-3 rounded-lg ${
-                  activePilotPhase === 2 ? 'bg-teal-50/50 ring-1 ring-[var(--color-teal)]/30' : 'hover:bg-slate-50/60'
-                }`}
-                id="pilot-phase-2"
-                onClick={() => handleSelectPilotPhase(2)}
-              >
-                <div className="phase-header">
-                  <span className={`phase-tag ${activePilotPhase === 2 ? 'bg-[var(--color-teal)] text-white' : ''}`}>
-                    Months 4–6
-                  </span>
-                  <h3 className="phase-title">Phase 2 — Bilingual operationalisation</h3>
-                </div>
-                <p>
-                  Develop matched Russian–English stimuli and independent indicators. Conduct multidisciplinary review, blinded classification, and material refinement.
-                </p>
-                <div className="phase-outputs">
-                  <strong>Primary outputs:</strong> Bilingual stimulus and indicator bank, coding materials, and material-validity record.
-                </div>
+        {/* 5. The Pilot Section */}
+        <section className="section section-tinted" id="pilot" aria-labelledby="pilot-heading">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-eyebrow">Indicative Empirical Programme</span>
+              <h2 id="pilot-heading">The proposed Russian–English pilot</h2>
+              <p>
+                The proposed 12-month Russian–English pilot is a joint project <strong>to be co-designed</strong> with the Academic Co-Lead. Twelve months is an indicative duration, not a funded or contractually agreed schedule. Its scope, start date, staffing, sample size, methods, progression criteria, and budget depend entirely on the eventual protocol, institutional agreement, and available resources.
+              </p>
+            </div>
+
+            {/* Pilot Interactive Indicator */}
+            <div className="academic-card mb-6" id="pilot-progress-indicator">
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-3 mb-4">
+                <span className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-teal)]">
+                  Indicative Phase Structure (12 Months)
+                </span>
+                <span className="text-xs text-slate-500">
+                  Click a phase to inspect objectives and decision gates
+                </span>
               </div>
 
-              {/* Phase 3 */}
-              <div
-                className={`timeline-phase cursor-pointer transition-all p-3 rounded-lg ${
-                  activePilotPhase === 3 ? 'bg-teal-50/50 ring-1 ring-[var(--color-teal)]/30' : 'hover:bg-slate-50/60'
-                }`}
-                id="pilot-phase-3"
-                onClick={() => handleSelectPilotPhase(3)}
-              >
-                <div className="phase-header">
-                  <span className={`phase-tag ${activePilotPhase === 3 ? 'bg-[var(--color-teal)] text-white' : ''}`}>
-                    Months 7–10
-                  </span>
-                  <h3 className="phase-title">Phase 3 — Core feasibility study</h3>
-                </div>
-                <p>
-                  Conduct cognitive interviews and a small preregistered feasibility study under the university’s ethics and data-governance pathway.
-                </p>
-                <div className="phase-outputs">
-                  <strong>Primary outputs:</strong> Core pilot report and documented revision log.
-                </div>
-              </div>
-
-              {/* Phase 4 */}
-              <div
-                className={`timeline-phase cursor-pointer transition-all p-3 rounded-lg ${
-                  activePilotPhase === 4 ? 'bg-amber-50/60 ring-1 ring-amber-300' : 'hover:bg-slate-50/60'
-                }`}
-                id="pilot-phase-4"
-                onClick={() => handleSelectPilotPhase(4)}
-              >
-                <div className="phase-header">
-                  <span
-                    className={`phase-tag ${
-                      activePilotPhase === 4 ? 'bg-amber-200 text-amber-900 border border-amber-300' : ''
+              {/* Phase Buttons */}
+              <div className="grid-4 gap-2 mb-4">
+                {[
+                  { id: 1, label: 'Phase 1 · Q1', title: 'Empirical Specification', months: 'M1–M3' },
+                  { id: 2, label: 'Phase 2 · Q2', title: 'Bilingual Operationalisation', months: 'M4–M6' },
+                  { id: 3, label: 'Phase 3 · Q3', title: 'Feasibility & Interviews', months: 'M7–M10' },
+                  { id: 4, label: 'Phase 4 · Q4', title: 'Evaluation & Decision', months: 'M11–M12' },
+                ].map((p) => (
+                  <button
+                    key={p.id}
+                    type="button"
+                    onClick={() => setActivePilotPhase(p.id)}
+                    className={`text-left p-3 rounded border transition-all cursor-pointer ${
+                      activePilotPhase === p.id
+                        ? 'bg-[var(--color-teal)] text-white border-[var(--color-teal)] shadow-sm'
+                        : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300'
                     }`}
                   >
-                    Months 11–12
-                  </span>
-                  <h3 className="phase-title">Phase 4 — Dependency-aware decision</h3>
+                    <span className="block text-[11px] font-mono opacity-80">{p.label} · {p.months}</span>
+                    <span className="block font-semibold text-sm mt-0.5">{p.title}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Dynamic Phase Inspector */}
+              <div className="p-4 rounded bg-slate-50 border border-slate-200 text-sm">
+                {activePilotPhase === 1 && (
+                  <div>
+                    <span className="font-mono text-xs font-bold text-[var(--color-teal)] uppercase block mb-1">
+                      PHASE 1 · MONTHS 1–3 · Specification &amp; Alternative Explanations
+                    </span>
+                    <p className="text-slate-800 font-medium mb-2">
+                      Formalises theoretical claims into testable empirical assertions. Sets up explicit comparisons with established trait, lexical, and cognitive models.
+                    </p>
+                    <div className="text-xs text-slate-600">
+                      <strong>Deliverables:</strong> Empirical Specification v1.0, Comparator Matrix · <strong>Decision Gate 1:</strong> Pre-registered operational definitions and auxiliary assumptions completed.
+                    </div>
+                  </div>
+                )}
+                {activePilotPhase === 2 && (
+                  <div>
+                    <span className="font-mono text-xs font-bold text-[var(--color-teal)] uppercase block mb-1">
+                      PHASE 2 · MONTHS 4–6 · Matched Bilingual Materials
+                    </span>
+                    <p className="text-slate-800 font-medium mb-2">
+                      Develops matched Russian and English stimulus materials, indicators, and scoring guides. Conducts blinded classification exercises with bilingual raters.
+                    </p>
+                    <div className="text-xs text-slate-600">
+                      <strong>Deliverables:</strong> Bilingual Stimulus Bank, Coding Guides · <strong>Decision Gate 2:</strong> Blinded rater agreement and material validity corroborated across both languages.
+                    </div>
+                  </div>
+                )}
+                {activePilotPhase === 3 && (
+                  <div>
+                    <span className="font-mono text-xs font-bold text-[var(--color-teal)] uppercase block mb-1">
+                      PHASE 3 · MONTHS 7–10 · Empirical Feasibility Study
+                    </span>
+                    <p className="text-slate-800 font-medium mb-2">
+                      Conducts cognitive interviews and feasibility data collection through the university’s approved ethics and data-governance pathway.
+                    </p>
+                    <div className="text-xs text-slate-600">
+                      <strong>Deliverables:</strong> Feasibility Dataset, Execution Report · <strong>Decision Gate 3:</strong> Protocol fidelity, coding reliability, and initial discriminability documented.
+                    </div>
+                  </div>
+                )}
+                {activePilotPhase === 4 && (
+                  <div>
+                    <span className="font-mono text-xs font-bold text-amber-900 bg-amber-100 px-2 py-0.5 rounded inline-block mb-1">
+                      PHASE 4 · MONTHS 11–12 · Joint Evaluation &amp; Stop Rule
+                    </span>
+                    <p className="text-slate-800 font-medium mb-2">
+                      Applies pre-registered decision criteria and executes the Year 1 Stop Rule: if proposed distinctions fail to show discriminability, the programme halts or revises locally.
+                    </p>
+                    <div className="text-xs text-slate-600">
+                      <strong>Deliverables:</strong> Confirmatory Protocol, Joint Manuscript, Funding Case · <strong>Year 1 Gate:</strong> Formal progression review by all project leads.
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Decision Gates & Stop Rule */}
+            <div className="grid-2" id="gates">
+              <div className="academic-card">
+                <h4 className="font-serif text-lg text-[var(--color-navy)] mb-2">Design-specific progression criteria</h4>
+                <p className="text-sm text-[var(--color-text-main)] mb-2">
+                  Sample size, statistical power, and decision criteria will be determined through design-specific power or precision analysis and joint methodological review, rather than fixed arbitrary numerical cut-offs.
+                </p>
+                <ul className="text-xs space-y-1 text-slate-600 list-disc pl-4 mb-0">
+                  <li>Sample size justified by formal power/precision calculations for target effect sizes</li>
+                  <li>Inter-rater agreement criteria calibrated to task complexity and coding format</li>
+                  <li>Classification accuracy benchmarked explicitly against chance and competitor models</li>
+                </ul>
+              </div>
+
+              <div className="academic-card border-l-4 border-amber-600">
+                <h4 className="font-serif text-lg text-amber-950 mb-2">The Year 1 Stop Rule</h4>
+                <p className="text-sm text-[var(--color-text-main)] mb-2">
+                  If the pilot data fail to demonstrate empirical discriminability or fail against simpler alternative explanations, the programme will not proceed to downstream trait, developmental, or applied stages.
+                </p>
+                <p className="text-xs text-slate-600 mb-0">
+                  Informative negative or disconfirming findings will be documented and submitted for publication, preserving scientific integrity and preventing research waste.
+                </p>
+              </div>
+            </div>
+
+            {/* Research Horizon */}
+            <div className="mt-8" id="horizon">
+              <div className="section-header mb-4">
+                <span className="section-eyebrow">Research Trajectory</span>
+                <h3 className="font-serif text-xl text-[var(--color-navy)] mb-2">Research horizon</h3>
+                <p className="text-sm text-slate-600 mb-0">
+                  The research trajectory advances through three conditional horizons rather than a fixed calendar-year schedule. Specific timelines, milestones, and scope of work will be defined jointly with the incoming Academic Co-Lead and host institution, contingent upon the agreed study protocol, pilot findings, ethics approvals, and secured grant funding.
+                </p>
+              </div>
+
+              <div className="grid-3">
+                {/* Horizon 1 */}
+                <div className="horizon-col" id="horizon-pilot">
+                  <span className="gate-badge" style={{ marginBottom: '0.75rem', display: 'inline-block' }}>HORIZON 1</span>
+                  <h4 className="font-serif text-base text-[var(--color-navy)] mb-1">
+                    Proposed 12-month bilingual pilot<br />
+                    <span style={{ fontSize: '0.875rem', fontWeight: 'normal', color: 'var(--color-teal)' }}>Foundational operationalisation &amp; initial tests</span>
+                  </h4>
+                  <p className="text-xs text-slate-600 mb-3">
+                    Independent operationalisation of the upstream foundation and initial empirical tests of selected Generativity I relations across Russian and English text corpora.
+                  </p>
+                  <ul className="text-xs space-y-1 text-slate-700 list-disc pl-4 mb-0">
+                    <li>Claim–assumption–test–failure register</li>
+                    <li>Bilingual stimulus materials and text markers (Russian and English)</li>
+                    <li>Upstream architecture discriminability test</li>
+                    <li>Initial Generativity I relation distinctiveness</li>
+                    <li>Joint confirmatory protocol and external grant co-application</li>
+                  </ul>
                 </div>
-                <p>
-                  Apply prespecified decision criteria. Prepare a confirmatory protocol, joint manuscript, and external funding case for the next justified generativity level.
-                </p>
-                <div className="phase-outputs">
-                  <strong>Primary outputs:</strong> Confirmatory protocol, manuscript plan, and funding-ready proposal.
+
+                {/* Horizon 2 */}
+                <div className="horizon-col" id="horizon-mechanisms">
+                  <span className="gate-badge" style={{ marginBottom: '0.75rem', display: 'inline-block', backgroundColor: '#f0fdfa', color: 'var(--color-teal)', borderColor: 'var(--color-teal)' }}>HORIZON 2</span>
+                  <h4 className="font-serif text-base text-[var(--color-navy)] mb-1">
+                    Conditional mechanism studies<br />
+                    <span style={{ fontSize: '0.875rem', fontWeight: 'normal', color: 'var(--color-teal)' }}>Targeted relation &amp; configuration tests</span>
+                  </h4>
+                  <p className="text-xs text-slate-600 mb-3">
+                    Separate studies of Generativity I–III, conducted when appropriate psychometric measures and substantive grounds are established for each specific study.
+                  </p>
+                  <ul className="text-xs space-y-1 text-slate-700 list-disc pl-4 mb-0">
+                    <li>Generativity I relation distinctiveness and recovery</li>
+                    <li>Generativity II recurrent contradiction handling and trait-like regularities</li>
+                    <li>Generativity III accessibility hypothesis and eight whole-person configuration templates</li>
+                    <li>Repeated-measures designs and within-person sampling</li>
+                    <li>Prespecified comparisons against established trait, lexical, and cognitive models</li>
+                  </ul>
+                </div>
+
+                {/* Horizon 3 */}
+                <div className="horizon-col" id="horizon-development">
+                  <span className="gate-badge" style={{ marginBottom: '0.75rem', display: 'inline-block', backgroundColor: '#f8fafc', color: '#475569', borderColor: '#cbd5e1' }}>HORIZON 3</span>
+                  <h4 className="font-serif text-base text-[var(--color-navy)] mb-1">
+                    Longer-term person &amp; development studies<br />
+                    <span style={{ fontSize: '0.875rem', fontWeight: 'normal', color: 'var(--color-teal)' }}>Individual organisation &amp; development</span>
+                  </h4>
+                  <p className="text-xs text-slate-600 mb-3">
+                    Studies of within-person organisation and Generativity IV development; exploratory social and embodied branches evaluated separately as prospective directions.
+                  </p>
+                  <ul className="text-xs space-y-1 text-slate-700 list-disc pl-4 mb-0">
+                    <li>Within-person architecture and individual functional profiles</li>
+                    <li>Generativity IV developmental pathways and functional reorganisation over time</li>
+                    <li>Suitable longitudinal designs to evaluate structural stability and change</li>
+                    <li>Independent evaluation of exploratory interpersonal and embodied directions</li>
+                    <li>Multi-institutional consortia and competitive funding co-applications</li>
+                  </ul>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
 
-        {/* 6.9 Decision Gates */}
-        <section className="section section-tinted" id="gates" aria-labelledby="gates-title">
-          <div className="container">
-            <div className="section-header">
-              <span className="section-eyebrow">Accountability Milestones</span>
-              <h2 id="gates-title">Progression is conditional</h2>
-              <p>
-                The programme enforces clear decision gates at each milestone. The next study should be ethics-ready and funding-ready only if the relevant gate is passed.
-              </p>
-            </div>
-
-            <div className="grid-4">
-              {/* Gate 1 */}
-              <div className="gate-card" id="gate-card-1">
-                <span className="gate-badge">MONTH 3</span>
-                <h4>Empirical Specification v1.0</h4>
-                <p className="text-sm">
-                  <strong>Pass condition:</strong> Every target claim has an independent operationalisation, identified auxiliary assumptions, prespecified competitors, and a local revision condition.
-                </p>
-              </div>
-
-              {/* Gate 2 */}
-              <div className="gate-card" id="gate-card-2">
-                <span className="gate-badge">MONTH 6</span>
-                <h4>Bilingual materials review</h4>
-                <p className="text-sm">
-                  <strong>Pass condition:</strong> Blinded classification and cognitive interviewing meet prespecified material-validity thresholds in Russian and English.
-                </p>
-              </div>
-
-              {/* Gate 3 */}
-              <div className="gate-card" id="gate-card-3">
-                <span className="gate-badge">MONTH 9</span>
-                <h4>Core feasibility study</h4>
-                <p className="text-sm">
-                  <strong>Pass condition:</strong> The pilot estimates the discriminability of manifestations, coordinates, and selected relation identities without circular scoring.
-                </p>
-              </div>
-
-              {/* Gate 4 */}
-              <div className="gate-card" id="gate-card-4">
-                <span className="gate-badge">MONTH 12</span>
-                <h4>Core decision</h4>
-                <p className="text-sm">
-                  <strong>Possible decisions:</strong>
-                  <br />• Progression
-                  <br />• Targeted revision
-                  <br />• Discontinuation
-                </p>
-              </div>
-            </div>
-
-            {/* Prominent Restrained Stop-Rule Panel (Warm Ochre) */}
-            <div className="stop-rule-panel" id="stop-rule-container" role="note">
-              <h3 className="flex items-center gap-2">
-                <AlertCircle className="w-5 h-5 text-[var(--color-ochre-dark)]" />
-                <span>Year 1 stop rule</span>
-              </h3>
-              <p>
-                If independently constructed materials repeatedly fail to discriminate the manifestations or coordinate assignments, revise the upstream architecture before testing downstream generativities or constructing a broad LPT scale.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* 6.10 Three-Year Research Horizon */}
-        <section className="section" id="horizon" aria-labelledby="horizon-title">
-          <div className="container">
-            <div className="section-header">
-              <span className="section-eyebrow">Long-Term Trajectory</span>
-              <h2 id="horizon-title">Research horizon</h2>
-              <p>
-                Empirical progression beyond Year 1 is conditional on the preceding decision gates. Studies for Year 2 and Year 3 have not yet begun and will only proceed upon passing earlier gates.
-              </p>
-            </div>
-
-            <div className="grid-3">
-              {/* Year 1 */}
-              <div className="horizon-col" id="col-year-1">
-                <h3>
-                  Year 1<br />
-                  <span className="text-[0.9375rem] font-normal text-[var(--color-teal)]">Operationalise and test</span>
-                </h3>
-                <ul>
-                  <li>Claim–assumption–test–failure register</li>
-                  <li>Bilingual operationalisation</li>
-                  <li>Upstream architecture test</li>
-                  <li>Initial Generativity I feasibility work</li>
-                  <li>Confirmatory protocol and funding case</li>
-                </ul>
-              </div>
-
-              {/* Year 2 */}
-              <div className="horizon-col" id="col-year-2">
-                <h3>
-                  Year 2<br />
-                  <span className="text-[0.9375rem] font-normal text-[var(--color-teal)]">Test mechanisms</span>
-                </h3>
-                <ul>
-                  <li>Generativity I distinctiveness</li>
-                  <li>Generativity II process pathway</li>
-                  <li>Generativity III accessibility and configurations</li>
-                  <li>Repeated-measures designs</li>
-                  <li>Prespecified comparison with alternatives</li>
-                </ul>
-              </div>
-
-              {/* Year 3 */}
-              <div className="horizon-col" id="col-year-3">
-                <h3>
-                  Year 3<br />
-                  <span className="text-[0.9375rem] font-normal text-[var(--color-teal)]">Model persons &amp; extensions</span>
-                </h3>
-                <ul>
-                  <li>Person-specific architecture</li>
-                  <li>Generativity IV developmental hypotheses</li>
-                  <li>Social and dyadic extensions</li>
-                  <li>Embodied and physiological feasibility work</li>
-                  <li>Independent DCC feasibility programme</li>
-                  <li>Multi-institutional funding proposal</li>
-                </ul>
+              {/* Partnership & Status Note */}
+              <div style={{ marginTop: '1.5rem', padding: '1rem 1.25rem', background: 'var(--color-surface)', border: '1px solid var(--color-border)', borderLeft: '3px solid var(--color-teal)', borderRadius: 'var(--radius-sm)', fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>
+                <strong style={{ color: 'var(--color-navy)' }}>Current Initiative Status:</strong> Sergey V. Golubkov is currently the sole confirmed participant (Founder and Theoretical Lead). Academic Co-Lead, Methods Lead, and Russian–English Research Contributor roles are actively sought. Institutional partnership, host ethics oversight, and grant funding are not yet confirmed and will be established jointly with the incoming academic partner.
               </div>
             </div>
           </div>
         </section>
 
-        {/* 6.11 Commitments & 6.12 Non-Claims Section */}
-        <section className="section section-tinted" id="commitments" aria-labelledby="commit-heading">
+        {/* 6. Scientific Independence, Open Science & Boundaries */}
+        <section className="section" id="independence" aria-labelledby="independence-heading">
+          <span id="commitments" />
           <div className="container">
             <div className="section-header">
               <span className="section-eyebrow">Integrity &amp; Open Science</span>
-              <h2 id="commit-heading">How the programme will protect scientific independence</h2>
+              <h2 id="independence-heading">Scientific independence and research principles</h2>
             </div>
 
-            <div className="grid-2 mb-10">
+            <div className="grid-2 mb-6">
               <div className="academic-card">
-                <h4>Programme-wide scientific commitments</h4>
-                <ul className="list-square pl-5 text-[0.9375rem] flex flex-col gap-2 text-[var(--color-text-main)]">
-                  <li>Testability before advocacy</li>
-                  <li>Independent evaluation</li>
-                  <li>Comparator-first design</li>
-                  <li>Preregistration where appropriate</li>
-                  <li>Transparent methods and versioned materials</li>
-                  <li>Design-specific power or precision analysis rather than arbitrary fixed sample sizes</li>
+                <h4 className="font-serif text-base text-[var(--color-navy)] mb-2">Programme-wide scientific commitments</h4>
+                <ul className="text-sm space-y-2 text-slate-700 list-square pl-5 mb-0">
+                  <li><strong>Testability before advocacy:</strong> Theoretical claims remain candidate hypotheses until independently tested.</li>
+                  <li><strong>Independent evaluation:</strong> Academic co-leads and methods leads operate with full methodological autonomy.</li>
+                  <li><strong>Comparator-first design:</strong> Prespecified comparisons against established trait, lexical, and cognitive models.</li>
+                  <li><strong>Preregistration:</strong> Hypotheses, classification protocols, and analyses preregistered where appropriate.</li>
+                  <li><strong>Transparent methods:</strong> Open materials, code, metadata, or suitably protected data shared where permitted.</li>
+                  <li><strong>Principled sample sizing:</strong> Design-specific power or precision analysis rather than arbitrary fixed sample sizes.</li>
                 </ul>
               </div>
 
               <div className="academic-card">
-                <h4>Methodological safeguards</h4>
-                <ul className="list-square pl-5 text-[0.9375rem] flex flex-col gap-2 text-[var(--color-text-main)]">
-                  <li>Publication of informative null or disconfirming results</li>
-                  <li>Stage gates permitting revision, narrowing, or rejection</li>
-                  <li>Independent methods input and, where feasible, at least one collaborator without a commercial interest in LPT or DCC</li>
-                  <li>Ethical and culturally responsible cross-linguistic research</li>
-                  <li>Clear separation of theory, evidence, application, product claims, and clinical claims</li>
+                <h4 className="font-serif text-base text-[var(--color-navy)] mb-2">Authorship, publication &amp; data governance</h4>
+                <ul className="text-sm space-y-2 text-slate-700 list-square pl-5 mb-0">
+                  <li><strong>Contribution-based authorship:</strong> Authorship reflects actual contributions, described transparently using CRediT, and the applicable journal’s policy. CRediT describes contributions; it does not automatically determine author status or order.</li>
+                  <li><strong>Right to publish null findings:</strong> Partners retain the unrestricted right to submit negative or disconfirming findings for peer-reviewed publication.</li>
+                  <li><strong>Responsible data sharing:</strong> Sharing participant-level data depends on participant consent, ethics approval, applicable regulations, and host university data governance.</li>
+                  <li><strong>Host ethics route:</strong> Studies involving human participants or text corpora follow the partner university’s institutional review procedures.</li>
                 </ul>
               </div>
             </div>
 
-            {/* 6.12 Claims that require separate evidence */}
-            <div className="caution-box" id="caution-unclaimed">
-              <h4 className="flex items-center gap-2">
-                <ShieldCheck className="w-5 h-5 text-[#bc5a2b]" />
-                <span>Claims that require separate evidence</span>
-              </h4>
-              <p className="text-[0.9375rem] mb-4 text-[#69290a]">
-                To maintain strict scientific precision and prevent unverified assumptions, the Language Personality Theory Research Collaborative will not claim prematurely:
+            {/* Single Research / Commercial Separation Box */}
+            <div className="academic-card border-l-4 border-[var(--color-navy)] mb-6">
+              <h4 className="font-serif text-base text-[var(--color-navy)] mb-2">Separation of academic research and commercial activity</h4>
+              <p className="text-sm text-slate-700 mb-3">
+                Language Personality Theory Research Collaborative (LPT-RC) is a purely non-commercial academic research initiative. Dialectical Contradictions Coaching (DCC) and Inner Dialectica are separate applied and commercial activities. A university research collaboration does not imply institutional affiliation with, or endorsement of, DCC, Inner Dialectica, or commercial products.
               </p>
-              <ul className="list-unclaimed">
-                <li>that the formal count of 28 relations proves 28 psychologically distinct contradiction classes;</li>
-                <li>that the eight ideal configurations are fixed personality types, diagnoses, competence levels, or employee-selection categories;</li>
+              <div className="bg-slate-50 p-3 rounded border border-slate-200 text-xs text-slate-600 italic">
+                <strong>Conflict-of-interest disclosure:</strong> Sergey V. Golubkov is the originator of LPT and DCC and has a commercial interest in their practical applications through Inner Dialectica. Academic research conducted through university partnerships is governed independently by the study protocol, institutional ethics, and peer-reviewed standards.
+              </div>
+            </div>
+
+            {/* Claims that require separate evidence */}
+            <div className="caution-box" id="unclaimed-box">
+              <h4 className="font-serif text-base text-amber-950 mb-2">Claims that require separate evidence</h4>
+              <p className="text-sm text-amber-900 mb-2">
+                To maintain strict scientific precision and prevent unverified assumptions, LPT-RC does not claim:
+              </p>
+              <ul className="list-unclaimed text-sm space-y-1">
+                <li>that the formal count of 28 geometric relations proves 28 psychologically distinct contradiction classes;</li>
+                <li>that the eight idealised configurations are empirically established discrete personality types, diagnoses, competence levels, or employee-selection categories;</li>
+                <li>that Cube geometry alone establishes an accessibility ordering or proves that real people fall into eight discrete personality classes;</li>
                 <li>that illustrative trait labels or team-role propensities are validated mappings;</li>
                 <li>that proposed body–organ or physiological correspondences are validated;</li>
                 <li>that somatic hypotheses establish disease causation or support diagnosis or treatment;</li>
@@ -1751,373 +1194,59 @@ export default function LptRcPage() {
           </div>
         </section>
 
-        {/* Frequently Asked Questions (Agreed Authoritative Copy) */}
-        <section className="section section-tinted" id="faq" aria-labelledby="faq-heading">
-          <div className="container container-narrow">
-            <div className="section-header">
-              <span className="section-eyebrow">Clarifications &amp; Principles</span>
-              <h2 id="faq-heading">Frequently Asked Questions</h2>
-              <p>
-                Authoritative clarifications on the theoretical architecture, methodological boundaries, and institutional principles of the Language Personality Theory Research Collaborative.
-              </p>
-            </div>
-
-            <div className="faq-list">
-              {/* Question 1 */}
-              <details className="faq-item" id="faq-item-1">
-                <summary className="faq-question">
-                  <span>What is Language Personality Theory (LPT) in brief?</span>
-                  <span className="faq-icon" aria-hidden="true">▼</span>
-                </summary>
-                <div className="faq-answer">
-                  <p>
-                    Language Personality Theory is a proposed generative psychological architecture that models personality functioning through eight structural manifestations (Needs, Perception, Emotions, Actions, Values, Thought, Evaluation, and Speech) organized along three polar coordinates: <strong>Subjective–Objective</strong>, <strong>Natural–Social</strong>, and <strong>Inter–Intrapersonal</strong>. Formally derived from these coordinates are 28 pairwise structural relations representing systemic polarities and dialectical tensions between psychological functions.
-                  </p>
-                  <p>
-                    Rather than reducing trait-descriptive adjectives to statistical factors, LPT uses recurrent distinctions in natural language as defeasible constraints on a candidate part–whole (meronomic) architecture of psychological functions.
-                  </p>
-                </div>
-              </details>
-
-              {/* Question 2 */}
-              <details className="faq-item" id="faq-item-2">
-                <summary className="faq-question">
-                  <span>How does LPT differ from conventional psycholexical trait models (such as the Big Five)?</span>
-                  <span className="faq-icon" aria-hidden="true">▼</span>
-                </summary>
-                <div className="faq-answer">
-                  <p>
-                    Conventional psycholexical models ask which personality characteristics become encoded in language and apply statistical factor analysis to trait-descriptive adjectives to construct descriptive taxonomies (such as dimensions or factor categories).
-                  </p>
-                  <p>
-                    In contrast, Language Personality Theory asks an architectural and functional question: what recurrent pre-theoretical distinctions in natural language reveal about the systemic components of personality and the relations among them. LPT is therefore architectural and generative rather than taxonomic. It proposes a part–whole (meronomic) functional system organized along three coordinates (<strong>Subjective–Objective</strong>, <strong>Natural–Social</strong>, <strong>Inter–Intrapersonal</strong>) rather than an inventory of individual-difference traits.
-                  </p>
-                </div>
-              </details>
-
-              {/* Question 3 */}
-              <details className="faq-item" id="faq-item-3">
-                <summary className="faq-question">
-                  <span>Has Language Personality Theory been empirically proven or validated?</span>
-                  <span className="faq-icon" aria-hidden="true">▼</span>
-                </summary>
-                <div className="faq-answer">
-                  <p>
-                    No. Language Personality Theory is currently a candidate theoretical architecture and a scientific hypothesis. The mathematical derivation of eight manifestations and 28 relations is a formal structural property of the model, not empirical proof of psychological reality.
-                  </p>
-                  <p>
-                    Whether these proposed functional components, coordinates, and dialectical relations are psychologically discriminable and construct-recoverable requires rigorous, independent empirical testing. Testing these core claims under pre-registered conditions is precisely the objective of the proposed LPT-RC collaborative research programme.
-                  </p>
-                </div>
-              </details>
-
-              {/* Question 4 */}
-              <details className="faq-item" id="faq-item-4">
-                <summary className="faq-question">
-                  <span>Does LPT propose eight rigid personality &ldquo;types&rdquo;?</span>
-                  <span className="faq-icon" aria-hidden="true">▼</span>
-                </summary>
-                <div className="faq-answer">
-                  <p>
-                    No. The eight manifestations (Needs, Perception, Emotions, Actions, Values, Thought, Evaluation, and Speech) represent idealized functional components of personality functioning across the three polar coordinates, not static typological pigeonholes, diagnostic labels, competence levels, or employee-selection categories.
-                  </p>
-                  <p>
-                    In LPT, personality functioning is dynamic: individuals engage all eight components, and personality expression is characterized by situational configurations, shifting balances, and dialectical tensions among components rather than assignment to a single fixed &ldquo;type&rdquo;.
-                  </p>
-                </div>
-              </details>
-
-              {/* Question 5 */}
-              <details className="faq-item" id="faq-item-5">
-                <summary className="faq-question">
-                  <span>What are the 28 structural relations, and what is their empirical status?</span>
-                  <span className="faq-icon" aria-hidden="true">▼</span>
-                </summary>
-                <div className="faq-answer">
-                  <p>
-                    The 28 relations represent all pairwise structural combinations among the eight manifestations (8 × 7 / 2 = 28): 12 along one dimension (edges of the cube), 12 along two dimensions (face diagonals), and 4 across all three dimensions (space diagonals). Theoretically, they model systemic polarities, complementarities, and dialectical tensions between psychological functions.
-                  </p>
-                  <p>
-                    Empirically, LPT-RC maintains that the formal combinatorial derivation does not by itself prove 28 distinct psychological contradiction classes. Whether these relations are psychologically discriminable, independently recoverable from natural language, and behaviorally meaningful are open empirical questions to be tested in the research programme.
-                  </p>
-                </div>
-              </details>
-
-              {/* Question 6 */}
-              <details className="faq-item" id="faq-item-6">
-                <summary className="faq-question">
-                  <span>What is the status of C. George Boeree&apos;s 2003 commentary?</span>
-                  <span className="faq-icon" aria-hidden="true">▼</span>
-                </summary>
-                <div className="faq-answer">
-                  <p>
-                    In 2003, Dr C. George Boeree published an independent explanatory summary of the original 2002 formulation of LPT on his Shippensburg University personal academic webspace. He highlighted LPT&apos;s effort to move beyond descriptive trait typologies towards an integrative theory of personality grounded in language.
-                  </p>
-                  <p>
-                    As documented on this website, Boeree’s commentary is historically valuable as an early independent scholarly reading of the initial formulation. However, it is an explanatory reading rather than an empirical validation, it does not evaluate the updated 2026 architecture, and it does not imply institutional affiliation with or endorsement by Shippensburg University.
-                  </p>
-                </div>
-              </details>
-
-              {/* Question 7 */}
-              <details className="faq-item" id="faq-item-7">
-                <summary className="faq-question">
-                  <span>How does LPT-RC separate academic research from coaching practices and commercial products?</span>
-                  <span className="faq-icon" aria-hidden="true">▼</span>
-                </summary>
-                <div className="faq-answer">
-                  <p>
-                    LPT-RC enforces a strict institutional boundary between independent academic science and applied or commercial practices. Applied frameworks such as Dialectical Contradictions Coaching (DCC) and commercial platforms (such as Inner Dialectica) are distinct practical explorations.
-                  </p>
-                  <p>
-                    Academic partners collaborate exclusively on non-commercial scientific research under open scholarly standards. University collaboration does not imply endorsement of any commercial method, coaching service, or clinical claim, and research data and protocols are governed by independent academic rigor.
-                  </p>
-                </div>
-              </details>
-
-              {/* Question 8 */}
-              <details className="faq-item" id="faq-item-8">
-                <summary className="faq-question">
-                  <span>What is the immediate focus of the proposed university partnership?</span>
-                  <span className="faq-icon" aria-hidden="true">▼</span>
-                </summary>
-                <div className="faq-answer">
-                  <p>
-                    The primary proposed initiative is a bounded 12-month Russian–English bilingual pilot study. The pilot focuses on psychometric operationalisation, marker extraction, automated text classification, and testing construct recoverability across natural language corpora.
-                  </p>
-                  <p>
-                    The partnership offers university researchers an intellectual and empirical challenge with pre-registered hypotheses and clear risk mitigation, yielding publishable methodological and empirical contributions regardless of whether hypotheses are corroborated or falsified.
-                  </p>
-                </div>
-              </details>
-            </div>
-          </div>
-        </section>
-
-        {/* 6.13 Partnership Model */}
-        <section className="section" id="partnership" aria-labelledby="partner-model-heading">
+        {/* 7. Founder and Theoretical Lead Section */}
+        <section className="section bg-surface" id="founder" aria-labelledby="founder-heading" style={{ backgroundColor: 'var(--color-surface)', borderTop: '1px solid var(--color-border-subtle)', borderBottom: '1px solid var(--color-border-subtle)' }}>
           <div className="container">
             <div className="section-header">
-              <span className="section-eyebrow">Institutional Collaboration</span>
-              <h2 id="partner-model-heading">A complementary university partnership</h2>
-              <p>
-                The project offers a bounded test of a specified, high-risk theoretical architecture rather than an open-ended request to endorse a new theory. It can produce a publishable methods or feasibility result even if major claims require revision.
-              </p>
-            </div>
-
-            <div className="grid-2">
-              {/* LPT-RC Contribution */}
-              <div className="academic-card border-t-4 border-t-[var(--color-navy)]">
-                <h3>LPT-RC contribution</h3>
-                <ul className="list-square pl-5 text-[0.9375rem] flex flex-col gap-1.5 text-[var(--color-text-main)]">
-                  <li>Theory stewardship and canonical source set</li>
-                  <li>Dependency map and draft research materials</li>
-                  <li>Draft manifestation, relation, and stimulus materials</li>
-                  <li>Founder time and project coordination</li>
-                  <li>Russian and English conceptual rationale</li>
-                  <li>International and multilingual direction</li>
-                  <li>Dissemination and future funding narrative</li>
-                </ul>
-              </div>
-
-              {/* University Contribution */}
-              <div className="academic-card border-t-4 border-t-[var(--color-teal)]">
-                <h3>University contribution</h3>
-                <ul className="list-square pl-5 text-[0.9375rem] flex flex-col gap-1.5 text-[var(--color-text-main)]">
-                  <li>Academic co-lead and independent scientific challenge</li>
-                  <li>Methods and psychometrics expertise</li>
-                  <li>Ethics and data-governance route</li>
-                  <li>Research assistants and student involvement</li>
-                  <li>Appropriate participant access</li>
-                  <li>Grant and contracting consultation</li>
-                  <li>Institutional sponsorship if subsequently agreed in writing</li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Possible Deliverables / Outputs */}
-            <div className="academic-card mt-8">
-              <h4>Anticipated joint outputs</h4>
-              <div className="grid-2 mt-3">
-                <ul className="list-square pl-5 text-sm text-[var(--color-text-muted)] flex flex-col gap-1">
-                  <li>Empirical Specification v1.0</li>
-                  <li>Comparator matrix</li>
-                  <li>Russian–English stimulus and indicator bank</li>
-                  <li>Coding and adjudication materials</li>
-                </ul>
-                <ul className="list-square pl-5 text-sm text-[var(--color-text-muted)] flex flex-col gap-1">
-                  <li>Material-validity and feasibility report</li>
-                  <li>Confirmatory protocol</li>
-                  <li>Joint manuscript</li>
-                  <li>Next-stage funding proposal</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 6.14 Collaboration Roles Currently Sought */}
-        <section className="section section-tinted" id="roles" aria-labelledby="roles-title">
-          <div className="container">
-            <div className="section-header">
-              <span className="section-eyebrow">Academic Positions</span>
-              <h2 id="roles-title">Current partnership needs</h2>
-              <p>
-                Appointments are project-based and time-bounded. Advisory participation does not imply endorsement. Authorship will follow documented contribution using the CRediT taxonomy.
-              </p>
-            </div>
-
-            <div className="grid-4">
-              {/* Role 1 */}
-              <div className="academic-card" id="role-academic-co-lead">
-                <h4>University Academic Co-Lead</h4>
-                <span className="role-badge-unfilled">Proposed / unfilled</span>
-                <p className="text-xs mt-3 text-[var(--color-text-muted)]">
-                  Senior or mid-career university-based researcher providing independent scientific challenge, oversight, and institutional hosting.
-                </p>
-              </div>
-
-              {/* Role 2 */}
-              <div className="academic-card" id="role-psychometrics">
-                <h4>Methods &amp; Psychometrics Lead</h4>
-                <span className="role-badge-unfilled">Proposed / unfilled</span>
-                <p className="text-xs mt-3 text-[var(--color-text-muted)]">
-                  Psychometrician or quantitative methodologist with expertise in construct validation, item response models, and comparator-first designs.
-                </p>
-              </div>
-
-              {/* Role 3 */}
-              <div className="academic-card" id="role-cross-lang">
-                <h4>Russian–English Contributor</h4>
-                <span className="role-badge-unfilled text-[#15464a] bg-[#e8f2f3] border-[#b6d7d9]">
-                  Proposed / project-specific
-                </span>
-                <p className="text-xs mt-3 text-[var(--color-text-muted)]">
-                  Bilingual researcher specialising in psycholinguistics, cognitive interviewing, or cross-cultural stimulus matching.
-                </p>
-              </div>
-
-              {/* Role 4 */}
-              <div className="academic-card" id="role-open-science-data">
-                <h4>Open Science &amp; Data Contributor</h4>
-                <span className="role-badge-unfilled">Proposed / unfilled</span>
-                <p className="text-xs mt-3 text-[var(--color-text-muted)]">
-                  Researcher steward managing preregistration workflows, data dictionaries, FAIR-compliant repositories, and versioned materials.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 6.15 Governance, 6.16 Commercial Boundary, 6.17 Founder */}
-        <section className="section" id="independence" aria-labelledby="indep-heading">
-          <div className="container container-narrow">
-            <div className="section-header">
-              <span className="section-eyebrow">Institutional Neutrality</span>
-              <h2 id="indep-heading">Academic independence</h2>
-            </div>
-
-            <p>
-              The Founder and Research Lead stewards theoretical provenance, definitions, version history, and programme coherence. He does not unilaterally determine empirical methods, results, or authorship.
-            </p>
-            <p>
-              Project scientific decisions are shared with the relevant Project Lead, Methods Lead, and project co-leads. LPT-RC cannot self-approve studies requiring institutional ethics review.
-            </p>
-            <p>
-              Valid disconfirming findings may be published. Commercial approval is not required for the interpretation or publication of research results.
-            </p>
-            <p>
-              No institutional affiliation, sponsorship, or endorsement is implied unless documented in a written agreement with a named university partner.
-            </p>
-
-            {/* 6.16 Research-Commercial Boundary */}
-            <div className="academic-card my-10 border-l-4 border-l-[var(--color-navy)]">
-              <h3>Research and commercial activity are separate</h3>
-              <p>
-                LPT-RC is the research pathway. Inner Dialectica and Dialectical Contradictions Coaching constitute a separate application and commercialisation pathway.
-              </p>
-              <p>
-                The LPT-RC identity and academic website must remain separate from Inner Dialectica or DCC sales and product pages.
-              </p>
-              <p>
-                Relevant intellectual property and financial interests will be disclosed in proposals, publications, participant information, and partner agreements.
-              </p>
-              <p>
-                Product users are not research participants without separate information, consent, ethics approval, and data-governance arrangements.
-              </p>
-              <p>
-                Commercial materials must distinguish reflective or coaching use from validated assessment, diagnosis, treatment, or institutional endorsement.
-              </p>
-              <div className="bg-[var(--color-surface-subtle)] p-4 rounded border border-[var(--color-border-subtle)] mt-4">
-                <p className="text-sm italic mb-0 text-[var(--color-text-main)]">
-                  <strong>Conflict-of-interest disclosure:</strong> “Sergey V. Golubkov is the originator of Language Personality Theory and Dialectical Contradictions Coaching and may have a financial interest in their future commercial applications. Research conducted through university partnerships will be governed by the study protocol, institutional ethics and data requirements, prespecified analyses where applicable, and the right to publish results irrespective of outcome.”
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 6.17 Founder and Research Lead Section */}
-        <section
-          className="section bg-[var(--color-surface)] border-y border-[var(--color-border-subtle)]"
-          id="founder"
-          aria-labelledby="founder-heading"
-        >
-          <div className="container">
-            <div className="section-header">
-              <span className="section-eyebrow">FOUNDER AND RESEARCH LEAD</span>
-              <h2 id="founder-heading">Research leadership and theoretical provenance</h2>
+              <span className="section-eyebrow">FOUNDER AND THEORETICAL LEAD</span>
+              <h2 id="founder-heading">Theoretical provenance and founder role</h2>
             </div>
 
             <div className="founder-grid">
-              {/* Left Column: Academic Portrait (32-36% width on desktop) */}
+              {/* Left Column: Academic Portrait */}
               <div className="founder-portrait-col">
                 <div className="founder-portrait-frame">
                   <Image
-                    src={portraitSrc}
-                    alt="Sergey V. Golubkov, Founder and Research Lead of LPT-RC"
+                    src="/assets/sergey_golubkov_portrait_v2.jpg"
+                    alt="Sergey V. Golubkov, Founder and Theoretical Lead of LPT-RC"
                     width={400}
                     height={520}
-                    priority
-                    className="founder-portrait-img w-full h-full object-cover object-top"
-                    referrerPolicy="no-referrer"
+                    className="founder-portrait-img"
+                    id="founder-portrait-image"
+                    priority={false}
                   />
                 </div>
                 <div className="founder-portrait-caption">
-                  <span className="font-semibold text-[var(--color-navy)]">Sergey V. Golubkov, Ph.D.</span>
+                  <span style={{ fontWeight: 600, color: 'var(--color-navy)' }}>Sergey V. Golubkov, Ph.D.</span>
                   <br />
-                  <span className="text-xs text-[var(--color-teal)]">
-                    Founder and Research Lead, LPT-RC
+                  <span style={{ fontSize: '0.75rem', color: 'var(--color-teal)' }}>
+                    Founder and Theoretical Lead, LPT-RC
                   </span>
                 </div>
               </div>
 
-              {/* Right Column: Identity, Biography, Selected Background, Links */}
+              {/* Right Column: Bio, Selected Background, Links */}
               <div className="founder-bio-col">
                 <div className="founder-name-title">
                   <h3 className="founder-name">Sergey V. Golubkov, Ph.D.</h3>
                   <div className="founder-role">
                     Independent Researcher
                     <br />
-                    Founder and Research Lead, LPT-RC
-                    {hasConfiguredOrcid && (
-                      <div className="mt-1">
-                        <a
-                          href={ORCID_URL}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="reference-doi inline-flex items-center gap-1 text-xs"
-                          title="ORCID iD: 0000-0002-5288-7817"
-                        >
-                          <span>ORCID: 0000-0002-5288-7817</span>
-                          <ExternalLink className="w-3 h-3" />
-                        </a>
-                      </div>
-                    )}
+                    Founder and Theoretical Lead, LPT-RC
+                    <br />
+                    <a
+                      href={ORCID_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="reference-doi inline-flex items-center gap-1 text-xs mt-1"
+                      title="ORCID iD: 0000-0002-5288-7817"
+                    >
+                      <span>ORCID: 0000-0002-5288-7817</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
                   </div>
                 </div>
 
-                {/* Founder Biography: British English per Section 5 */}
                 <div className="founder-bio-text">
                   <p>
                     Sergey V. Golubkov is a psychologist, independent researcher, and the originator of Language Personality Theory. He introduced LPT in a peer-reviewed article published in 2002 and continues its theoretical development through the 2026 scientific manuscript <em>From Taxonomies to Generative Architecture</em>.
@@ -2129,11 +1258,10 @@ export default function LptRcPage() {
                     He is a CCE Board Certified Coach, a BetterUp Distinguished Fellow Coach, and a member of the Association for Research in Personality.
                   </p>
                   <p>
-                    His role in LPT-RC is to steward the provenance, definitions, and coherence of the theory while opening its architecture to independent operationalisation, comparison, critical examination, and empirical testing. Theory stewardship does not give the founder unilateral authority over empirical methods, results, interpretation, or authorship.
+                    His role in LPT-RC is as Founder and Theoretical Lead: to provide the LPT architecture, source publications, and draft materials, and to interpret findings for the theory while opening the model to independent operationalisation, scrutiny, and empirical testing. Theory stewardship does not give the founder unilateral authority over empirical methods, results, interpretation, or authorship.
                   </p>
                 </div>
 
-                {/* Selected background list: Section 6 */}
                 <div className="founder-background-box">
                   <h4 className="founder-background-title">Selected background</h4>
                   <ul className="founder-background-list">
@@ -2150,76 +1278,56 @@ export default function LptRcPage() {
                   </ul>
                 </div>
 
-                {/* Founder links: Section 7 */}
                 <div className="founder-links-row">
-                  {/* ORCID: hidden if placeholder not replaced */}
-                  {hasConfiguredOrcid && (
-                    <a
-                      href={ORCID_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-sm btn-outline inline-flex items-center gap-1.5"
-                      id="founder-orcid-link"
-                    >
-                      <span>ORCID</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  )}
-
-                  {/* Publications */}
                   <a
-                    href="#foundations"
-                    className="btn btn-sm btn-outline inline-flex items-center gap-1.5"
-                    id="founder-publications-link"
+                    href={ORCID_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-sm btn-outline inline-flex items-center gap-1"
+                    id="founder-orcid-link"
                   >
-                    <span>Selected Publications</span>
+                    <span>ORCID</span>
+                    <ExternalLink className="w-3 h-3" />
                   </a>
 
-                  {/* Academic CV */}
-                  {/* 
-                    Expected local file: assets/Sergey_Golubkov_Academic_CV.pdf
-                    Placed in /assets and /public/assets to activate.
-                  */}
+                  <a href="#publications" className="btn btn-sm btn-outline" id="founder-publications-link">
+                    Selected Publications
+                  </a>
+
                   <a
-                    href="/assets/Sergey_Golubkov_Academic_CV.pdf"
+                    href={CV_PDF}
                     download="Sergey_Golubkov_Academic_CV.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-sm btn-outline inline-flex items-center gap-1.5"
+                    className="btn btn-sm btn-outline inline-flex items-center gap-1"
                     id="founder-cv-link"
                     title="Download Sergey V. Golubkov Academic CV (PDF)"
                   >
-                    <Download className="w-3.5 h-3.5" />
+                    <Download className="w-3 h-3" />
                     <span>Academic CV</span>
                   </a>
 
-                  {/* Contact Sergey */}
-                  {hasConfiguredEmail ? (
-                    <a
-                      href={`mailto:${CONTACT_EMAIL}?subject=LPT-RC%20Research%20Enquiry`}
-                      className="btn btn-sm btn-primary inline-flex items-center gap-1.5"
-                      id="founder-contact-link"
-                    >
-                      <Mail className="w-3.5 h-3.5" />
-                      <span>Contact Sergey Golubkov</span>
-                    </a>
-                  ) : (
-                    <span className="btn btn-sm btn-disabled opacity-60 cursor-not-allowed">
-                      Contact details forthcoming
-                    </span>
-                  )}
+                  <a
+                    href={`mailto:${CONTACT_EMAIL}?subject=LPT-RC%20Research%20Enquiry`}
+                    className="btn btn-sm btn-primary inline-flex items-center gap-1.5"
+                    id="founder-contact-link"
+                  >
+                    <Mail className="w-3.5 h-3.5" />
+                    <span>Contact Sergey Golubkov</span>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 6.18 Selected Foundations */}
+        {/* 8. Selected Foundations & Publications */}
         <section className="section section-tinted" id="foundations" aria-labelledby="foundations-title">
+          <span id="publications" />
           <div className="container container-narrow">
             <div className="section-header">
               <span className="section-eyebrow">Academic Literature</span>
-              <h2 id="foundations-title">Selected foundations</h2>
+              <h2 id="foundations-title">Selected publications and foundations</h2>
               <p>
                 Key publications outlining the theoretical architecture, historical foundation, and applied bridge:
               </p>
@@ -2232,12 +1340,12 @@ export default function LptRcPage() {
                 Golubkov, S. V. (2026). <em>From Taxonomies to Generative Architecture: Language Personality Theory and What a Theory of Personality Should Explain</em>. Scientific Master v2.
               </div>
               <a
-                href="https://doi.org/10.5281/zenodo.22727605"
+                href={MANUSCRIPT_DOI}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="reference-doi inline-flex items-center gap-1"
               >
-                <span>https://doi.org/10.5281/zenodo.22727605</span>
+                <span>{MANUSCRIPT_DOI}</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>
@@ -2335,54 +1443,176 @@ export default function LptRcPage() {
           </div>
         </section>
 
-        {/* 6.19 Final Call to Action */}
+        {/* 9. Frequently Asked Questions */}
+        <section className="section" id="faq" aria-labelledby="faq-heading">
+          <div className="container container-narrow">
+            <div className="section-header">
+              <span className="section-eyebrow">Clarifications &amp; Principles</span>
+              <h2 id="faq-heading">Frequently Asked Questions</h2>
+              <p>
+                Authoritative clarifications on the theoretical architecture, methodological boundaries, and institutional principles of the Language Personality Theory Research Collaborative.
+              </p>
+            </div>
+
+            <div className="faq-list">
+              <details className="faq-item" id="faq-item-1">
+                <summary className="faq-question">
+                  <span>What is Language Personality Theory (LPT) in brief?</span>
+                  <span className="faq-icon" aria-hidden="true">▼</span>
+                </summary>
+                <div className="faq-answer">
+                  <p>
+                    Language Personality Theory is a proposed generative psychological architecture that models personality functioning through eight structural manifestations (Needs, Perception, Emotions, Actions, Values, Thought, Evaluation, and Speech) organized along three polar coordinates: <strong>Subjective–Objective</strong>, <strong>Natural–Social</strong>, and <strong>Inter–Intrapersonal</strong>. Formally derived from these coordinates are 28 pairwise structural relations representing systemic polarities and dialectical tensions between psychological functions.
+                  </p>
+                  <p>
+                    Rather than reducing trait-descriptive adjectives to statistical factors, LPT uses recurrent distinctions in natural language as defeasible constraints on a candidate part–whole (meronomic) architecture of psychological functions.
+                  </p>
+                </div>
+              </details>
+
+              <details className="faq-item" id="faq-item-2">
+                <summary className="faq-question">
+                  <span>How does LPT differ from conventional psycholexical trait models (such as the Big Five)?</span>
+                  <span className="faq-icon" aria-hidden="true">▼</span>
+                </summary>
+                <div className="faq-answer">
+                  <p>
+                    Conventional psycholexical models ask which personality characteristics become encoded in language and apply statistical factor analysis to trait-descriptive adjectives to construct descriptive taxonomies (such as dimensions or factor categories).
+                  </p>
+                  <p>
+                    In contrast, Language Personality Theory asks an architectural and functional question: what recurrent pre-theoretical distinctions in natural language reveal about the systemic components of personality and the relations among them. LPT is therefore architectural and generative rather than taxonomic. It proposes a part–whole (meronomic) functional system organized along three coordinates rather than an inventory of individual-difference traits.
+                  </p>
+                </div>
+              </details>
+
+              <details className="faq-item" id="faq-item-3">
+                <summary className="faq-question">
+                  <span>Has Language Personality Theory been empirically proven or validated?</span>
+                  <span className="faq-icon" aria-hidden="true">▼</span>
+                </summary>
+                <div className="faq-answer">
+                  <p>
+                    No. Language Personality Theory is currently a candidate theoretical architecture and a scientific hypothesis. The mathematical derivation of eight manifestations and 28 relations is a formal structural property of the model, not empirical proof of psychological reality.
+                  </p>
+                  <p>
+                    Whether these proposed functional components, coordinates, and dialectical relations are psychologically discriminable and construct-recoverable requires rigorous, independent empirical testing. Testing these core claims under pre-registered conditions is precisely the objective of the proposed LPT-RC collaborative research programme.
+                  </p>
+                </div>
+              </details>
+
+              <details className="faq-item" id="faq-item-4">
+                <summary className="faq-question">
+                  <span>Does LPT propose eight personality configurations?</span>
+                  <span className="faq-icon" aria-hidden="true">▼</span>
+                </summary>
+                <div className="faq-answer">
+                  <p>
+                    Yes. Generativity III proposes eight idealised whole-person configurations, one for each possible focal manifestation. The Personality Cube specifies a 1–3–3–1 structural-distance pattern around each focal point; a separate, testable hypothesis proposes how that distance may relate to relative accessibility. These configurations are theoretical templates, not empirically established discrete personality categories, diagnoses, or rankings of people. A real person may approximate one template, combine features of several, change across contexts and time, or match none. Their psychological usefulness requires independent empirical testing.
+                  </p>
+                </div>
+              </details>
+
+              <details className="faq-item" id="faq-item-5">
+                <summary className="faq-question">
+                  <span>What are the 28 structural relations, and what is their empirical status?</span>
+                  <span className="faq-icon" aria-hidden="true">▼</span>
+                </summary>
+                <div className="faq-answer">
+                  <p>
+                    The 28 relations represent all pairwise structural combinations among the eight manifestations (8 × 7 / 2 = 28): 12 along one dimension (edges of the cube), 12 along two dimensions (face diagonals), and 4 across all three dimensions (space diagonals). Theoretically, they model systemic polarities, complementarities, and dialectical tensions between psychological functions.
+                  </p>
+                  <p>
+                    Empirically, LPT-RC maintains that the formal combinatorial derivation does not by itself prove 28 distinct psychological contradiction classes. Whether these relations are psychologically discriminable, independently recoverable from natural language, and behaviorally meaningful are open empirical questions to be tested in the research programme.
+                  </p>
+                </div>
+              </details>
+
+              <details className="faq-item" id="faq-item-6">
+                <summary className="faq-question">
+                  <span>What is the status of C. George Boeree&apos;s 2003 commentary?</span>
+                  <span className="faq-icon" aria-hidden="true">▼</span>
+                </summary>
+                <div className="faq-answer">
+                  <p>
+                    In 2003, Dr C. George Boeree published an independent explanatory summary of the original 2002 formulation of LPT on his Shippensburg University personal academic webspace. He highlighted LPT&apos;s effort to move beyond descriptive trait typologies towards an integrative theory of personality grounded in language.
+                  </p>
+                  <p>
+                    As documented on this website, Boeree’s commentary is historically valuable as an early independent scholarly reading of the initial formulation. However, it is an explanatory reading rather than an empirical validation, it does not evaluate the updated 2026 architecture, and it does not imply institutional affiliation with or endorsement by Shippensburg University.
+                  </p>
+                </div>
+              </details>
+
+              <details className="faq-item" id="faq-item-7">
+                <summary className="faq-question">
+                  <span>How does LPT-RC separate academic research from coaching practices and commercial products?</span>
+                  <span className="faq-icon" aria-hidden="true">▼</span>
+                </summary>
+                <div className="faq-answer">
+                  <p>
+                    LPT-RC enforces a strict institutional boundary between independent academic science and applied or commercial practices. Applied frameworks such as Dialectical Contradictions Coaching (DCC) and commercial platforms (such as Inner Dialectica) are distinct practical explorations.
+                  </p>
+                  <p>
+                    Academic partners collaborate exclusively on non-commercial scientific research under open scholarly standards. University collaboration does not imply endorsement of any commercial method, coaching service, or clinical claim, and research data and protocols are governed by independent academic rigor.
+                  </p>
+                </div>
+              </details>
+
+              <details className="faq-item" id="faq-item-8">
+                <summary className="faq-question">
+                  <span>What is the immediate focus of the proposed university partnership?</span>
+                  <span className="faq-icon" aria-hidden="true">▼</span>
+                </summary>
+                <div className="faq-answer">
+                  <p>
+                    The immediate priority is to identify a university-based Academic Co-Lead to jointly design a bounded Russian–English pilot study. The pilot focuses on psychometric operationalisation, marker extraction, automated text classification, and testing construct recoverability across natural language corpora.
+                  </p>
+                  <p>
+                    The partnership offers university researchers an intellectual and empirical challenge with pre-registered hypotheses and clear risk mitigation, yielding publishable methodological and empirical contributions regardless of whether hypotheses are corroborated or falsified.
+                  </p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        {/* 10. Final Call to Action */}
         <section className="section" id="contact" aria-labelledby="cta-heading">
           <div className="container container-narrow text-center">
             <span className="section-eyebrow">Academic Fit &amp; Scoping</span>
             <h2 id="cta-heading">Explore a university partnership</h2>
             <p className="mx-auto mb-8 max-w-[64ch]">
-              LPT-RC is seeking a university-based academic co-lead and an independent methods or psychometrics contributor for an initial 60–90 minute scientific scoping meeting.
+              LPT-RC is seeking a university-based Academic Co-Lead and an independent methods or psychometrics contributor for an initial 60–90 minute scientific scoping meeting.
               <br /><br />
-              The meeting should assess scientific fit, identify the appropriate ethics and data pathway, and reach a go/no-go decision on a jointly revised 12-month pilot.
+              The meeting assesses scientific fit, identifies the host ethics and data pathway, and reaches a joint go/no-go decision on a co-designed 12-month pilot.
             </p>
 
             <div className="btn-group justify-center">
-              {hasConfiguredEmail ? (
-                <a
-                  href={`mailto:${CONTACT_EMAIL}?subject=LPT-RC%20Scientific%20Scoping%20Meeting`}
-                  className="btn btn-primary"
-                  id="final-meeting-link"
-                >
-                  Request a Scientific Scoping Meeting
-                </a>
-              ) : (
-                <button
-                  type="button"
-                  className="btn btn-disabled cursor-not-allowed"
-                  title="Contact details forthcoming"
-                  disabled
-                >
-                  Contact details forthcoming
-                </button>
-              )}
+              <a
+                href={`mailto:${CONTACT_EMAIL}?subject=LPT-RC%20Scientific%20Scoping%20Meeting`}
+                className="btn btn-primary"
+                id="final-meeting-link"
+              >
+                Request a Scientific Scoping Meeting
+              </a>
 
               <a
-                href="/assets/LPT_RC_University_Concept_Note_v0.2.pdf"
-                download="LPT_RC_University_Concept_Note_v0.2.pdf"
+                href={CONCEPT_NOTE_PDF}
+                download="LPT_RC_University_Concept_Note_v0.3.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-outline"
+                className="btn btn-outline inline-flex items-center gap-1.5"
                 id="final-concept-link"
-                title="Download University Concept Note v0.2 (PDF)"
+                title="Download University Concept Note v0.3 (PDF)"
               >
-                Download University Concept Note v0.2
+                <Download className="w-3.5 h-3.5 opacity-80" />
+                <span>Download University Concept Note v0.3</span>
               </a>
             </div>
           </div>
         </section>
       </main>
 
-      {/* 6.20 Footer */}
+      {/* 11. Footer */}
       <footer className="site-footer" role="contentinfo" id="site-footer">
         <div className="container">
           <div className="footer-top">
@@ -2390,7 +1620,7 @@ export default function LptRcPage() {
               <h4>Language Personality Theory Research Collaborative</h4>
               <p className="text-[#92cbd0] text-xs mb-2">Public short form: LPT Research Collaborative</p>
               <p className="text-[#a4b3c4] text-xs max-w-[48ch]">
-                An independent international, project-based network established to operationalise, test, compare, and extend the generative architecture of LPT through open, cross-linguistic, and person-specific research.
+                Founder-led independent research initiative seeking university collaboration to test a candidate generative architecture of personality through open, cross-linguistic research.
               </p>
               <p className="text-[#92cbd0] text-xs mt-2">
                 Contact:{" "}
@@ -2406,7 +1636,7 @@ export default function LptRcPage() {
             <nav aria-label="Footer navigation">
               <ul className="footer-links-list">
                 <li>
-                  <a href="https://doi.org/10.5281/zenodo.22727605" target="_blank" rel="noopener noreferrer">
+                  <a href={MANUSCRIPT_DOI} target="_blank" rel="noopener noreferrer">
                     2026 scientific manuscript
                   </a>
                 </li>
@@ -2445,7 +1675,7 @@ export default function LptRcPage() {
           </div>
 
           <div className="footer-bottom">
-            <span>© 2026 LPT-RC · Independent international project-based research network</span>
+            <span>© 2026 LPT-RC · Founder-led independent research initiative</span>
             <span className="text-[#7b8e9f]">No institutional affiliation or endorsement is implied.</span>
           </div>
         </div>
